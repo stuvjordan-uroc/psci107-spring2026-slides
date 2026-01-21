@@ -7,8 +7,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        jan20: resolve(__dirname, 'presentations/jan20-essentials.html'),
-        jan22: resolve(__dirname, 'presentations/jan22-ppt.html'),
+        '0120': resolve(__dirname, 'presentations/0120-course-essentials.html'),
+        '0122': resolve(__dirname, 'presentations/0122-ppt-what-why.html'),
         // Add more presentations here as you create them
       },
     },
