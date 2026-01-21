@@ -1,0 +1,4 @@
+/* Main stylesheet - imports all style modules */
+@import './styles/colors.css';
+@import './styles/typography.css';
+@import './styles/tables.css';

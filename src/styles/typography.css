@@ -1,0 +1,50 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+/* Global default font */
+body {
+  font-family: 'Lexend', sans-serif;
+}
+
+/* Set default font for Reveal.js presentations */
+.reveal {
+  font-family: 'Lexend', sans-serif;
+  font-size: 24pt;
+}
+
+/* Headings also use Lexend by default */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: 'Lexend', sans-serif;
+}
+
+.reveal h1 {
+  font-size: 2em;
+}
+
+.reveal h2 {
+  font-size: 1.6em;
+}
+
+.reveal h3 {
+  font-size: 1.3em;
+}
+
+.reveal h4 {
+  font-size: 1.1em;
+}
+
+.reveal h5,
+.reveal h6 {
+  font-size: 1em;
+}
+
+/* Handwritten font class */
+.handwritten {
+  font-family: 'Caveat', cursive;
+}

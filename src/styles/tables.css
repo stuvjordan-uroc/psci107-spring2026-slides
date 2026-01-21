@@ -1,0 +1,63 @@
+/* Table Styles */
+.reveal table {
+  border-collapse: collapse;
+  margin: 1em auto;
+}
+
+.reveal table th {
+  background-color: var(--blue-300);
+  color: var(--grey-900);
+  padding: 0.5em 1em;
+  text-align: left;
+  font-weight: 600;
+}
+
+.reveal table td {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid var(--grey-300);
+  color: var(--grey-900);
+}
+
+.reveal table tr:nth-child(even) td {
+  background-color: var(--grey-200);
+}
+
+.reveal table tr:nth-child(odd) td {
+  background-color: var(--grey-100);
+}
+
+.reveal table tr:hover td {
+  background-color: var(--blue-100);
+}
+
+/* Compact table variant */
+.reveal table.compact th,
+.reveal table.compact td {
+  padding: 0.25em 0.5em;
+  font-size: 0.9em;
+}
+
+/* Bordered table variant */
+.reveal table.bordered {
+  border: 2px solid var(--grey-400);
+}
+
+.reveal table.bordered th,
+.reveal table.bordered td {
+  border: 1px solid var(--grey-300);
+}
+
+/* Handwritten table variant */
+.reveal table.handwritten,
+.reveal table.handwritten th,
+.reveal table.handwritten td {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2em;
+}
+
+/* Handwritten compact table variant */
+.reveal table.handwritten.compact,
+.reveal table.handwritten.compact th,
+.reveal table.handwritten.compact td {
+  font-size: 1.1em;
+}
