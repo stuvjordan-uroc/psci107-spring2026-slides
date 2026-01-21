@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: './',
+  base: '/psci107-spring2026-slides/',
   build: {
     rollupOptions: {
       input: {
