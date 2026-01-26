@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 100" preserveAspectRatio="none">
+  <!-- Left bracket with sharp nipple at 30% -->
+  <path 
+    d="M 45,0 
+       C 20,0 15,0 15,10
+       C 15,18 18,24 10,10
+       C 18,16 15,42 15,50
+       C 15,60 15,95 15,92
+       C 15,100 20,100 45,100"
+    stroke="currentColor" 
+    fill="none" 
+    stroke-width="2"
+    stroke-linejoin="miter"
+  />
+</svg>
