@@ -1,5 +1,12 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
+import { sync } from "glob";
+
+const presentations = sync("presentations/*.html").reduce((acc, file) => {
+  const name = file.replace("presentations/", "").replace(".html", "");
+  acc[name] = resolve(__dirname, file);
+  return acc;
+}, {});
 
 export default defineConfig({
   base: "/psci107-spring2026-slides/",
@@ -7,10 +14,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
-        "0120": resolve(__dirname, "presentations/0120-course-essentials.html"),
-        "0122": resolve(__dirname, "presentations/0122-ppt-what-why.html"),
-        "0127": resolve(__dirname, "presentations/0127-preferences.html"),
-        // Add more presentations here as you create them
+        ...presentations,
       },
     },
   },
