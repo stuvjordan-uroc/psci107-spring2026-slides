@@ -51,7 +51,7 @@
 .reveal table.handwritten,
 .reveal table.handwritten th,
 .reveal table.handwritten td {
-  font-family: 'Caveat', cursive;
+  font-family: "Caveat", cursive;
   font-size: 1.2em;
 }
 
@@ -60,4 +60,56 @@
 .reveal table.handwritten.compact th,
 .reveal table.handwritten.compact td {
   font-size: 1.1em;
+}
+
+/* Mini table variants */
+.reveal table.mini-table-blue,
+.reveal table.mini-table-gray,
+.reveal table.mini-table-green {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.reveal table.mini-table-blue th,
+.reveal table.mini-table-gray th,
+.reveal table.mini-table-green th {
+  text-align: center;
+  color: inherit;
+}
+
+.reveal table.mini-table-blue td,
+.reveal table.mini-table-gray td,
+.reveal table.mini-table-green td {
+  text-align: left;
+  color: inherit;
+}
+
+/* Blue mini table */
+.reveal table.mini-table-blue th {
+  background-color: var(--blue-400);
+}
+
+.reveal table.mini-table-blue td {
+  background-color: var(--blue-100);
+  border-bottom: 1px solid var(--blue-300);
+}
+
+/* Gray mini table */
+.reveal table.mini-table-gray th {
+  background-color: var(--grey-400);
+}
+
+.reveal table.mini-table-gray td {
+  background-color: var(--grey-100);
+  border-bottom: 1px solid var(--grey-300);
+}
+
+/* Green mini table */
+.reveal table.mini-table-green th {
+  background-color: var(--green-400);
+}
+
+.reveal table.mini-table-green td {
+  background-color: var(--green-100);
+  border-bottom: 1px solid var(--green-300);
 }

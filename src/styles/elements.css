@@ -1,5 +1,10 @@
 /* Reusable element styles */
 
+/* Math rendering - make KaTeX inherit parent font size */
+.reveal .katex {
+  font-size: 1em;
+}
+
 /* lists */
 li {
   margin-bottom: 0.5em;

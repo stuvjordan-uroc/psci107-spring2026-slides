@@ -32,4 +32,15 @@
   --yellow-700: #fbc02d;
   --yellow-800: #f9a825;
   --yellow-900: #f57f17;
+
+  /* Greens */
+  --green-100: #e8f5e9;
+  --green-200: #c8e6c9;
+  --green-300: #a5d6a7;
+  --green-400: #81c784;
+  --green-500: #66bb6a;
+  --green-600: #4caf50;
+  --green-700: #43a047;
+  --green-800: #388e3c;
+  --green-900: #2e7d32;
 }
