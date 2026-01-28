@@ -77,6 +77,16 @@ li {
   overflow: hidden;
 }
 
+/* Variant for use in flex containers where height: 100% causes issues */
+.headed-quote-flex {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+  overflow: auto;
+}
+
 .headed-quote-header {
   font-size: 1.2em;
   font-weight: 700;

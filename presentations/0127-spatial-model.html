@@ -127,13 +127,13 @@
                     What percentages of officers on a patrol shift should be assigned to wait-for-and-respond-to 911
                     calls (with the remainder assigned to pro-active details)?
                   </div>
-                  <div id="diagram" class="handwritten"></div>
+                  <div id="diagram-proactive" class="handwritten"></div>
                   <script type="module">
                     import { createSpatialDiagram } from '/src/spatial-diagram.ts';
-                    document.getElementById('diagram').innerHTML = createSpatialDiagram({
+                    document.getElementById('diagram-proactive').innerHTML = createSpatialDiagram({
                       width: 600,
                       height: 300,
-                      id: 'spatial-1',
+                      id: 'spatial-proactive',
                       marginX: 40,
                       marginY: 60,
                       fontSize: 30,
@@ -159,6 +159,171 @@
       <section>
         <section>
           Essential Elements of a Spatial Model
+        </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--gray-800); text-align: left;">
+            <div style="background-color: var(--yellow-300); font-size: 1.2em; text-align: center;">
+              Essential Elements of a Spatial Model
+            </div>
+            <div style="font-size: 0.8em; display: flex; flex-direction: column; gap: 16px;">
+              <div class="headed-quote">
+                <div class="headed-quote-header">
+                  Description of a policy issue
+                </div>
+                <div class="headed-quote-body">
+                  Describe a policy issue and a set of policies towards that issue.
+                </div>
+              </div>
+              <div class="headed-quote">
+                <div class="headed-quote-header">
+                  Description of an ordering criterion
+                </div>
+                <div class="headed-quote-body">
+                  Say how those policies can be ordered relative to one another, and name the criterion against which
+                  they can be ordered.
+                </div>
+              </div>
+              <div class="headed-quote">
+                <div class="headed-quote-header">
+                  Illustration with a few specific policies
+                </div>
+                <div class="headed-quote-body">
+                  Name a few specific policies from the set of policies on the issue. Say how they are ordered with
+                  respect to the ordering criterion. Draw a diagram to illustrate.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--gray-800); text-align: left;">
+            <div style="background-color: var(--green-300); font-size: 1.2em; text-align: center; padding: 16px 0;">
+              Example
+            </div>
+            <div style="font-size: 0.8em; height: 100%; overflow-y: auto; padding: 0 16px;">
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 1em; font-weight: 700; margin-bottom: 4px;">
+                  Description of a policy issue
+                </div>
+                <div class="fragment handwritten" data-fragment-index="0"
+                  style="color: var(--blue-900); padding-left: 2em;">
+                  How should written laws enacted by a legislature be enforced? There are all kinds of choices that have
+                  to be made about this. For instance: How are violations of the law detected? Who decides whether an
+                  alleged violation will be punished and how do they decide? What punishments are applied to those found
+                  culpable of violations?
+                </div>
+              </div>
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 1.2em; font-weight: 700; margin-bottom: 4px;">
+                  Description of an ordering criterion
+                </div>
+                <div class="fragment handwritten" data-fragment-index="1"
+                  style="color: var(--blue-900); padding-left: 2em;">
+                  One feature that differentiates enforcement systems from one another is the extent to which they rely
+                  on public (as opposed to private) enforcement. An enforcement system is public to the extent that only
+                  employees of the states (such as prosecutors and police) are empowered to investigate and charge
+                  persons with violating a law.
+                </div>
+              </div>
+              <div>
+                <div style="font-size: 1em; font-weight: 700; margin-bottom: 4px;">
+                  Illustration with a few specific policies
+                </div>
+                <div style="position: relative; padding-left: 2em;">
+                  <div class="fragment fade-in-then-out handwritten" data-fragment-index="2"
+                    style="color: var(--blue-900);">
+                    In the U.S. most criminal laws rely on purely public enforcement. At the other extreme,
+                    enforcement of personal injury law tends to be purely private, with only private inviduals empowered
+                    to bring suit
+                    against a person alleged to have harmed them in violation of law. U.S. laws against fraud in federal
+                    procurement use a mixed system, with both private individuals and U.S. attoneys empowered to bring
+                    charges against individuals for fraud in federal contracts.
+                  </div>
+                  <div class="fragment fade-in handwritten" data-fragment-index="3"
+                    style="position: absolute; top: 0; left: 0; color: var(--blue-900);">
+                    <div id="diagram-public-enforcement" class="handwritten"></div>
+                    <script type="module">
+                      import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+                      document.getElementById('diagram-public-enforcement').innerHTML = createSpatialDiagram({
+                        width: 900,
+                        height: 300,
+                        id: 'spatial-public-enforcement',
+                        marginX: 40,
+                        marginY: 60,
+                        fontSize: 30,
+                        policies: [
+                          { position: 0.1, label: 'personal injury law' },
+                          { position: 0.5, label: 'fed procurment fraud' },
+                          { position: 0.9, label: 'criminal law' }
+                        ],
+                        spaceLabel: { label: 'public enforcement' },
+                        LabelDirection: 'right'
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--gray-800); text-align: left;">
+            <div style="background-color: var(--blue-300); font-size: 1.2em; text-align: center; padding: 16px 0;">
+              Example
+            </div>
+            <div style="font-size: 0.8em; height: 100%; overflow-y: auto; padding: 0 16px;">
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 1em; font-weight: 700; margin-bottom: 4px;">
+                  Description of a policy issue
+                </div>
+                <div class="fragment handwritten" data-fragment-index="0"
+                  style="color: var(--blue-900); padding-left: 2em;">
+                  What regulations should apply to banks that provide saving and checking accounts, loans, and
+                  investment instruments to individuals (as opposed to corporations)?
+                </div>
+              </div>
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 1em; font-weight: 700; margin-bottom: 4px;">
+                  Description of an ordering criterion
+                </div>
+                <div class="fragment handwritten" data-fragment-index="1"
+                  style="color: var(--blue-900); padding-left: 2em;">
+                  One feature that differentiates regulatory regimes for consumer banks are strictness of reserve
+                  requirements. Strict reserve regimes require consumer banks to hold large portions of their customer's
+                  assets as cash. Less strict reserve requirements allow banks to use more of customer deposits for
+                  making loans and investments.
+                </div>
+              </div>
+              <div>
+                <div style="font-size: 1em; font-weight: 700; margin-bottom: 4px;">
+                  Illustration with a few specific policies
+                </div>
+                <div style="position: relative; padding-left: 2em;">
+                  <div class="fragment handwritten" data-fragment-index="2" style="color: var(--blue-900);">
+                    <div id="diagram-reserve-requirements" class="handwritten"></div>
+                    <script type="module">
+                      import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+                      document.getElementById('diagram-reserve-requirements').innerHTML = createSpatialDiagram({
+                        width: 800,
+                        height: 300,
+                        id: 'spatial-reserve-requirements',
+                        marginX: 40,
+                        marginY: 60,
+                        fontSize: 20,
+                        policies: [
+                          { position: 0.1, label: '20% of deposits as cash' },
+                          { position: 0.5, label: '30% of deposits as cash' },
+                          { position: 0.9, label: '40% of deposits as cash' }
+                        ],
+                        spaceLabel: { label: 'strictness of reserve requirement' },
+                        LabelDirection: 'right'
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </section>
     </div>
