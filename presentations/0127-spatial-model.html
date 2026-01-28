@@ -104,6 +104,52 @@
             </div>
           </div>
         </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--blue-200); font-size: 1.2em; text-align: center;">
+              Example: Proactive vs. Reactive Policing
+            </div>
+            <div style="font-size: 0.9em">
+              <div class="fragment">
+                <strong>Notice:</strong> Any given choice about the allocation of police resources across different
+                types of operations has a
+                <strong>degree</strong> of <strong>proactive-ness</strong>.
+              </div>
+              <div class="fragment">
+                This means that we can <strong>order</strong> different possible policies relative to one another
+                according to their <strong>degree of proactive-ness</strong>.
+              </div>
+              <div class="fragment" style="margin-top: 1em; display: flex; flex-direction: column; align-items: start;">
+                <strong>For example:</strong>
+                <div style="width: 80%; align-self: center; font-size: 1.1em; margin-top: 1em;">
+                  <div class="handwritten">
+                    What percentages of officers on a patrol shift should be assigned to wait-for-and-respond-to 911
+                    calls (with the remainder assigned to pro-active details)?
+                  </div>
+                  <div id="diagram" class="handwritten"></div>
+                  <script type="module">
+                    import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+                    document.getElementById('diagram').innerHTML = createSpatialDiagram({
+                      width: 600,
+                      height: 300,
+                      id: 'spatial-1',
+                      marginX: 40,
+                      marginY: 60,
+                      fontSize: 30,
+                      policies: [
+                        { position: 0.2, label: '20%' },
+                        { position: 0.35, label: '35%' },
+                        { position: 0.7, label: '70%' }
+                      ],
+                      spaceLabel: { label: 'proactive-ness' },
+                      LabelDirection: 'right'
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   </div>
