@@ -31,6 +31,125 @@
 
         </textarea>
       </section>
+      <section>
+        <section>
+          <h1>Inferring ideal points from vote records</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--blue-200); font-size: 1.2em; text-align: center;">
+              Example
+            </div>
+            <div class="fragment" style="font-size: 0.7em; display: flex; flex-direction: column; align-items: center;">
+              <p>Suppose we see 3 roll calls (A, B, C) in which 4 legislators (P, Q, R, S) participate. Each roll call
+                pits two different
+                policies against one another (So there are six distinct policies being considered!). In each roll call,
+                one policy is identified with a vote of "Yea", and the other with a vote of "Nay". The ONLY thing we
+                observe are the votes that each legislator casts in each roll call. Given the observed "yea"s and
+                "nay"s, <strong>what are the possible orderings of the legislators' ideal points in a spatial
+                  model</strong>? Assume that in each roll call, each legislator votes for the alternative he finds more
+                preferable.</p>
+            </div>
+            <div class="fragment"
+              style="font-size: 0.6em; display: flex; align-items: center; justify-content: space-evenly;">
+              <table class="mini-table-blue">
+                <thead>
+                  <tr>
+                    <th colspan="2">Roll Call A</th>
+                  </tr>
+                  <tr>
+                    <th>Legislator</th>
+                    <th>Vote Cast</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>P</td>
+                    <td>Yea</td>
+                  </tr>
+                  <tr>
+                    <td>Q</td>
+                    <td>Nay</td>
+                  </tr>
+                  <tr>
+                    <td>R</td>
+                    <td>Nay</td>
+                  </tr>
+                  <tr>
+                    <td>S</td>
+                    <td>Yea</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="mini-table-gray">
+                <thead>
+                  <tr>
+                    <th colspan="2">Roll Call B</th>
+                  </tr>
+                  <tr>
+                    <th>Legislator</th>
+                    <th>Vote Cast</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>P</td>
+                    <td>Nay</td>
+                  </tr>
+                  <tr>
+                    <td>Q</td>
+                    <td>Yea</td>
+                  </tr>
+                  <tr>
+                    <td>R</td>
+                    <td>Yea</td>
+                  </tr>
+                  <tr>
+                    <td>S</td>
+                    <td>Yea</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="mini-table-green">
+                <thead>
+                  <tr>
+                    <th colspan="2">Roll Call C</th>
+                  </tr>
+                  <tr>
+                    <th>Legislator</th>
+                    <th>Vote Cast</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>P</td>
+                    <td>Yea</td>
+                  </tr>
+                  <tr>
+                    <td>Q</td>
+                    <td>Nay</td>
+                  </tr>
+                  <tr>
+                    <td>R</td>
+                    <td>Yea</td>
+                  </tr>
+                  <tr>
+                    <td>S</td>
+                    <td>Yea</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="fragment"
+              style="font-size: 0.8em; border: 2px solid var(--blue-900); border-radius: 0.5em; background-color: var(--yellow-200); padding: 4px;">
+              You cannot solve this (and explain your work) without the <strong>Midpoint Rule</strong>: Given any pair
+              of policies, everyone with an ideal point to the the <strong>left</strong> of the midpoint <strong>prefers
+                the left policy to the right policy</strong>, and everyone with an ideal point to the
+              <strong>right</strong> of the midpoint <strong>prefers the right policy to the left policy</strong>.
+            </div>
+          </div>
+        </section>
+      </section>
     </div>
   </div>
   <script type="module" src="/src/reveal-setup.js"></script>
