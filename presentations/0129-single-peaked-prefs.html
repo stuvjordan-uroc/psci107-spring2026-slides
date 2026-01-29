@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSCI 107 Essentials - Jan 20</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/simple.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Single Peaked Preferences</h1>
+        <p>January 29, 2026</p>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          # Your list this week
+
+          - Work through Lesson 2 and all COUs in Lesson 2
+          - Go to your problem-solving session
+          
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          # Overview
+
+          - Where single peaked preferences fit
+          - Defining single peaked preferences
+          - Spatial voting and the midpoint rule
+          
+
+        </textarea>
+      </section>
+
+      <section>
+
+        <section>
+          <h1>Where single peaked preferences fit</h1>
+        </section>
+
+        <section style="text-align: left;">
+          <div class="fragment">
+            You've learned the <strong>general model of a persons preferences</strong>
+            <div style="padding-left: 2em; font-style: italic; color: var(--grey-600); margin-top: 0.5em;">
+              ...a set alternatives and one binary ordering for each unique pair of alternatives.
+            </div>
+          </div>
+          <div class="fragment" style="margin-top: 1em;">
+            You've learned the <strong>spatial model of policy</strong>
+            <div style="padding-left: 2em; font-style: italic; color: var(--grey-600); margin-top: 0.5em;">
+              ...a way of modeling a set
+              alternatives that are policies that could be adopted by a government.
+            </div>
+          </div>
+          <div class="fragment" style="margin-top: 1em;">
+            Now you'll learn <strong>single peaked preferences</strong>
+            <div style="padding-left: 2em; font-style: italic; color: var(--grey-600); margin-top: 0.5em;">
+              ...a simple way to model preferences when the alterantives are policies depicted by a spatial model.
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <section>
+        <section>
+          <h1>Defining single peaked preferences</h1>
+        </section>
+
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--blue-200); font-size: 1.2em; text-align: center;">
+              Defining single peaked preferences
+            </div>
+            <div style="font-size: 0.75em;">
+              <div class="fragment" style="margin-bottom: 1em;">
+                Take any spatial model of a set of policies.
+              </div>
+              <div class="fragment">
+                <p style="margin-bottom: 1em;">A person's preferences over those policies are <strong>single
+                    peaked</strong> if:</p>
+                <ol>
+                  <li class="fragment">There is a location in the model call the person's <em>ideal point</em>.</li>
+                  <li class="fragment">
+                    <p style="margin-bottom: 1em;">Given any pair of policies $x$ and $y$...</p>
+                    <ul class="fragment">
+                      <li class="fragment">If $x$ is closer to her ideal point than $y$, she prefers $x$ to $y$.</li>
+                      <li class="fragment">If $y$ is closer to her ideal point than $x$, she prefers $y$ to $x$.</li>
+                      <li class="fragment">If $x$ and $y$ are equidistant from her ideal point, she is indifferent
+                        between $x$ and $y$.
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--blue-200); font-size: 1.2em; text-align: center;">
+              Defining single peaked preferences
+            </div>
+            <div style="font-size: 0.75em; display: flex; flex-direction: column; align-items: center;">
+              <p style="margin-bottom: 1em; align-self: flex-start;">For example:</p>
+              <div style="position: relative">
+                <div id="diagram-single-peaked-def-0" class="handwritten fragment fade-in-then-out"
+                  data-fragment-index="1"></div>
+                <div id="diagram-single-peaked-def-1" class="handwritten fragment fade-in" data-fragment-index="2"
+                  style="position: absolute; top:0; left: 0;"></div>
+              </div>
+              <div class="handwritten fragment" data-fragment-index="3"
+                style="display: grid; grid-template-columns: auto 1fr; text-align: left; max-width: 50%; gap: 0.2em">
+                <div class="fragment" data-fragment-index="3">A vs. B:</div>
+                <div class="fragment" data-fragment-index="4">B preferred to A</div>
+                <div class="fragment" data-fragment-index="3">A vs. C:</div>
+                <div class="fragment" data-fragment-index="5">C preferred to A</div>
+                <div class="fragment" data-fragment-index="3">A vs. D:</div>
+                <div class="fragment" data-fragment-index="6">A preferred to D</div>
+                <div class="fragment" data-fragment-index="3">B vs. C:</div>
+                <div class="fragment" data-fragment-index="7">B preferred to C</div>
+                <div class="fragment" data-fragment-index="3">B vs. D:</div>
+                <div class="fragment" data-fragment-index="8">B preferred to D</div>
+                <div class="fragment" data-fragment-index="3">C vs. D:</div>
+                <div class="fragment" data-fragment-index="9">C preferred to D</div>
+              </div>
+              <script type="module">
+                import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+                document.getElementById('diagram-single-peaked-def-0').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 300,
+                  id: 'single-peaked-def-0',
+                  marginX: 40,
+                  marginY: 60,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.3, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.9, label: "D" },
+                  ],
+                });
+                document.getElementById('diagram-single-peaked-def-1').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 300,
+                  id: 'single-peaked-def-1',
+                  marginX: 40,
+                  marginY: 60,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.3, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.9, label: "D" },
+                  ],
+                  persons: [
+                    { position: 0.33, label: "ideal point" }
+                  ]
+                });
+              </script>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--blue-200); font-size: 1.2em; text-align: center;">
+              Defining single peaked preferences
+            </div>
+            <div style="font-size: 0.8em; display: flex; flex-direction: column; align-items: center;">
+              <p style="margin: 0px; align-self: flex-start;">Another example:</p>
+              <div id="diagram-single-peaked-def-2" class="handwritten fragment fade-in" data-fragment-index="1"></div>
+              <div class="handwritten fragment" data-fragment-index="2"
+                style="display: grid; grid-template-columns: auto auto auto; text-align: left; max-width: 90%; gap: 0.8em">
+                <div class="fragment" data-fragment-index="2" style="grid-column: 2; text-decoration: underline;">
+                  Kayvon's
+                  Orderings</div>
+                <div class="fragment" data-fragment-index="2" style="grid-column: 3; text-decoration: underline;">
+                  Naomi's
+                  Orderings</div>
+                <div class="fragment" data-fragment-index="3" style="grid-column: 1;">P vs. Q:</div>
+                <div class="fragment" data-fragment-index="3" style="grid-column: 1;">P vs. R:</div>
+                <div class="fragment" data-fragment-index="3" style="grid-column: 1;">P vs. S:</div>
+                <div class="fragment" data-fragment-index="3" style="grid-column: 1;">Q vs. R:</div>
+                <div class="fragment" data-fragment-index="3" style="grid-column: 1;">Q vs. S:</div>
+                <div class="fragment" data-fragment-index="3" style="grid-column: 1;">R vs. S:</div>
+                <div class="fragment" data-fragment-index="4" style="grid-column: 2; grid-row: 2">P preferred to Q</div>
+                <div class="fragment" data-fragment-index="4" style="grid-column: 2; grid-row: 3">P preferred to R</div>
+                <div class="fragment" data-fragment-index="4" style="grid-column: 2; grid-row: 4">P preferred to S</div>
+                <div class="fragment" data-fragment-index="4" style="grid-column: 2; grid-row: 5">Q preferred to R</div>
+                <div class="fragment" data-fragment-index="4" style="grid-column: 2; grid-row: 6">Q preferred to S</div>
+                <div class="fragment" data-fragment-index="4" style="grid-column: 2; grid-row: 7">R preferred to S</div>
+                <div class="fragment" data-fragment-index="5" style="grid-column: 3; grid-row: 2">Q preferred to P</div>
+                <div class="fragment" data-fragment-index="5" style="grid-column: 3; grid-row: 3">R preferred to P</div>
+                <div class="fragment" data-fragment-index="5" style="grid-column: 3; grid-row: 4">S preferred to P</div>
+                <div class="fragment" data-fragment-index="5" style="grid-column: 3; grid-row: 5">R preferred to Q</div>
+                <div class="fragment" data-fragment-index="5" style="grid-column: 3; grid-row: 6">S preferred to Q</div>
+                <div class="fragment" data-fragment-index="5" style="grid-column: 3; grid-row: 7">R preferred to S</div>
+              </div>
+            </div>
+            <script type="module">
+              import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+              document.getElementById('diagram-single-peaked-def-2').innerHTML = createSpatialDiagram({
+                width: 900,
+                height: 150,
+                id: 'single-peaked-def-2',
+                marginX: 40,
+                marginY: 10,
+                fontSize: 25,
+                policies: [
+                  { position: 0.1, label: "P" },
+                  { position: 0.7, label: "Q" },
+                  { position: 0.81, label: "R" },
+                  { position: 0.95, label: "S" },
+                ],
+                persons: [
+                  { position: 0.33, label: "Kayvon's ideal point" },
+                  { position: 0.80, label: "Naomi's ideal point" }
+                ]
+              });
+            </script>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Spatial voting and the midpoint rule</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--green-200); font-size: 1.2em; text-align: center;">
+              The Simplest Model of (Spatial) Voting
+            </div>
+            <div style="font-size: 0.7em; display: flex; flex-direction: column; align-items: center;">
+              <div>
+                <p class="fragment" data-fragment-index="1" style="margin-bottom: 0.25em;">Take any set of persons who
+                  have single-peaked preferences
+                  in some spatial model</p>
+                <p class="fragment" data-fragment-index="2" style="margin-bottom: 0.25em;">Take any pair of policies in
+                  the model</p>
+                <p class="fragment" data-fragment-index="4">Imagine the persons take a vote between the policies, with
+                  each person casting her vote for the policy she finds more preferable.</p>
+              </div>
+              <div class="handwritten" style="position: relative;">
+                <div id="midpoint-rule-0" class="fragment fade-in-then-out" data-fragment-index="1"></div>
+                <div id="midpoint-rule-1" class="fragment" data-fragment-index="2"
+                  style="position: absolute; top: 0; left: 0;"></div>
+                <svg class="fragment" data-fragment-index="6"
+                  style="position: absolute; top: 0; left: 0; width: 900px; height: 150px; pointer-events: none;">
+                  <line x1="507.4" y1="20" x2="507.4" y2="130" stroke="red" stroke-width="4" stroke-dasharray="5,5" />
+                </svg>
+              </div>
+              <div class="fragment" data-fragment-index="5"
+                style="max-width: 90%; border: 2px solid var(--grey-600); border-radius: 0.5em; background-color: var(--blue-200); padding: 0.5em">
+                <p><strong>The Midpoint Rule</strong></p>
+                <p>Take the midpoint between any two policies in a spatial model.</p>
+                <ul>
+                  <li>Every person with single-peaked preferences who has an ideal point to the <strong>left</strong> of
+                    the midpoint <strong>prefers the left policy to the right policy</strong>.</li>
+                  <li>Every person with single-peaked preferences who has an ideal point to the <strong>right</strong>
+                    of the midpoint <strong>prefers the right policy to the left policy</strong>.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="fragment fade-in-then-out" data-fragment-index="3"
+            style="position: absolute; top: 1em; left: 500px; background-color: var(--blue-200); border: solid 2px var(--blue-900); border-radius: 0.5em; transform: rotate(0.1turn);">
+            We will always put policies on the top and persons' ideal points on the bottom!
+          </div>
+          <div class="fragment fade-in-then-out handwritten" data-fragment-index="7"
+            style="position: absolute; top: 1em; left: 50px; max-width: 350px; background-color: var(--blue-200); font-size: 0.8em; border: solid 2px red; border-radius: 0.5em; transform: rotate(-0.05turn);">
+            <ul style="list-style: none; padding: 1px">
+              <li>Persons K, L, M, and N prefer X to Y (and thus vote for X).</li>
+              <li>Persons O, P, Q, R, and S prefer Y to X (and thus vote for Y).</li>
+            </ul>
+          </div>
+          <script type="module">
+            import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+            document.getElementById('midpoint-rule-0').innerHTML = createSpatialDiagram({
+              width: 900,
+              height: 150,
+              id: 'mpr-0',
+              marginX: 40,
+              marginY: 10,
+              fontSize: 25,
+              persons: [
+                { position: 0.1, label: "K" },
+                { position: 0.23, label: "L" },
+                { position: 0.4, label: "M" },
+                { position: 0.52, label: "N" },
+                { position: 0.6, label: "O" },
+                { position: 0.71, label: "P" },
+                { position: 0.81, label: "Q" },
+                { position: 0.95, label: "R" },
+                { position: 0.99, label: "S" }
+              ]
+            });
+            document.getElementById('midpoint-rule-1').innerHTML = createSpatialDiagram({
+              width: 900,
+              height: 150,
+              id: 'mpr-0',
+              marginX: 40,
+              marginY: 10,
+              fontSize: 25,
+              policies: [
+                { position: 0.44, label: "X" },
+                { position: 0.7, label: "Y" },
+              ],
+              persons: [
+                { position: 0.1, label: "K" },
+                { position: 0.23, label: "L" },
+                { position: 0.4, label: "M" },
+                { position: 0.52, label: "N" },
+                { position: 0.6, label: "O" },
+                { position: 0.71, label: "P" },
+                { position: 0.81, label: "Q" },
+                { position: 0.95, label: "R" },
+                { position: 0.99, label: "S" }
+              ]
+            });
+          </script>
+        </section>
+
+        <section>
+          <div class="slide-stack-2" style="color: var(--blue-900); text-align: left;">
+            <div style="background-color: var(--yellow-200); font-size: 1.2em; text-align: center;">
+              Another Example
+            </div>
+            <div style="font-size: 0.7em; display: flex; flex-direction: column; align-items: center;">
+              <div>
+                <p>Who votes for X and who votes for Y?</p>
+              </div>
+              <div class="handwritten" style="position: relative; margin-top: 2em;">
+                <div id="midpoint-rule-2"></div>
+                <svg class="fragment" data-fragment-index="2"
+                  style="position: absolute; top: 0; left: 0; width: 900px; height: 150px; pointer-events: none;">
+                  <line x1="454.1" y1="20" x2="454.1" y2="130" stroke="red" stroke-width="6" stroke-dasharray="5,5" />
+                </svg>
+              </div>
+            </div>
+            <div class="fragment fade-in-then-out handwritten" data-fragment-index="3"
+              style="position: absolute; top: 400px; left: 50px; max-width: 350px; background-color: var(--blue-200); font-size: 0.8em; border: solid 2px red; border-radius: 0.5em; transform: rotate(-0.05turn);">
+              <ul style="list-style: none; padding: 1px">
+                <li>Persons K, L, and M prefer X to Y (and thus vote for X).</li>
+                <li>Persons N, O, R, and S prefer Y to X (and thus vote for Y).</li>
+              </ul>
+            </div>
+            <script type="module">
+              import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+              document.getElementById('midpoint-rule-2').innerHTML = createSpatialDiagram({
+                width: 900,
+                height: 150,
+                id: 'mpr-2',
+                marginX: 40,
+                marginY: 10,
+                fontSize: 25,
+                policies: [
+                  { position: 0.35, label: "X" },
+                  { position: 0.66, label: "Y" },
+                ],
+                persons: [
+                  { position: 0.1, label: "K" },
+                  { position: 0.37, label: "L" },
+                  { position: 0.42, label: "M" },
+                  { position: 0.52, label: "N" },
+                  { position: 0.65, label: "O" },
+                  { position: 0.95, label: "R" },
+                  { position: 0.99, label: "S" }
+                ]
+              });
+            </script>
+        </section>
+      </section>
+
+
+    </div>
+  </div>
+  <script type="module" src="/src/reveal-setup.js"></script>
+</body>
+
+</html>

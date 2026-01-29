@@ -1,5 +1,10 @@
 /* Main stylesheet - imports all style modules */
-@import './styles/colors.css';
-@import './styles/typography.css';
-@import './styles/tables.css';
-@import './styles/elements.css';
+@import "./styles/colors.css";
+@import "./styles/typography.css";
+@import "./styles/tables.css";
+@import "./styles/elements.css";
+
+/* Override paragraph margins */
+.reveal p {
+  margin: 0px;
+}
