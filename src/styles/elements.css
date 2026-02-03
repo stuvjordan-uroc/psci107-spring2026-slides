@@ -36,6 +36,10 @@ li {
   row-gap: 16px;
 }
 
+/* ============================================================
+   SLIDE-STACK-2 AND RELATED CLASSES
+   ============================================================ */
+
 /* 2-row stack that fills entire reveal.js slide */
 .slide-stack-2 {
   position: absolute;
@@ -44,10 +48,47 @@ li {
   width: 100%;
   height: 700px;
   display: grid;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 70px minmax(0, 1fr);
   grid-template-columns: 1fr;
   row-gap: 16px;
+  color: var(--blue-900);
 }
+
+/* Slide stack header - styled title/header div */
+.slide-stack-header {
+  font-size: 1.2em;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slide stack body - content area */
+.slide-stack-body {
+  font-size: 0.8em;
+  height: calc(700px - 70px);
+  text-align: left;
+  padding: 16px 24px;
+}
+
+/* Color variants for slide-stack-header */
+.slide-stack-header-blue {
+  background-color: var(--blue-200);
+}
+
+.slide-stack-header-yellow {
+  background-color: var(--yellow-200);
+}
+
+.slide-stack-header-green {
+  background-color: var(--green-200);
+}
+
+.slide-stack-header-grey {
+  background-color: var(--grey-200);
+}
+
+/* ============================================================ */
 
 .boxed-header {
   background-color: var(--grey-200);

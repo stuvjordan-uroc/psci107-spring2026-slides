@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Fun" With Spatial Models</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/simple.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>"Fun" With Spatial Models</h1>
+        <p>February 3, 2026</p>
+      </section>
+      <section data-markdown>
+        <textarea data-template>
+
+          # Your list this week
+
+          - Work through Lesson 3 and all COUs in Lesson 3
+          - Go to your problem-solving session
+          
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          ## Recitation Section Location Changes
+
+          - Th 4:50, Harkness 112 ➡️ Th 4:50, Harkness **113**
+          - Th 6:15, Harkness 112 ➡️ Th 4:50, Harkness **113**
+          
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          # Overview
+
+          - Agendas
+          - Voting Rules
+          - The Core of a Voting Rule
+          - Multi-issue Politics
+
+        </textarea>
+      </section>
+
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+
+          # Agendas
+
+          </textarea>
+        </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-blue">
+              Definition of an "Agenda"
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment" data-fragment-index="1" style="margin-bottom: 0.5em;">
+                Given a spatial model of policy, a set of persons with single-peaked preferences, and a specified ideal
+                point for each person...
+              </div>
+              <div class="fragment" data-fragment-index="3">
+                An <strong>agenda</strong> is a set of possible locations in the model to which policy could be set.
+              </div>
+              <div class="handwritten" style="position: relative; margin-top: 4em;">
+                <div class="fragment fade-in" data-fragment-index="2">
+                  <div id="agenda-definition-0" class="fragment fade-out" data-fragment-index="4"></div>
+                </div>
+                <div id="agenda-definition-1" class="fragment" data-fragment-index="4"
+                  style="position: absolute; top: 0; left: 0;"></div>
+                <svg class="fragment" data-fragment-index="5"
+                  style="position: absolute; top: 0; left: 0; width: 900px; height: 150px; pointer-events: none;">
+                  <ellipse cx="490" cy="30" rx="360" ry="28" fill="none" stroke="var(--green-900)" stroke-width="3" />
+                </svg>
+                <div class="fragment handwritten" data-fragment-index="5"
+                  style="position: absolute; top: -50px; left: 265px; color: var(--green-900); font-size: 1.2em; transform: rotate(0.1turn);">
+                  agenda
+                </div>
+              </div>
+              <script type="module">
+                import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+
+                document.getElementById('agenda-definition-0').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 150,
+                  id: 'agenda-def-0',
+                  marginX: 40,
+                  marginY: 10,
+                  fontSize: 25,
+                  persons: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.25, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.55, label: "D" },
+                    { position: 0.7, label: "E" },
+                    { position: 0.85, label: "F" },
+                    { position: 0.95, label: "G" }
+                  ]
+                });
+
+                document.getElementById('agenda-definition-1').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 150,
+                  id: 'agenda-def-1',
+                  marginX: 40,
+                  marginY: 10,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.2, label: "W" },
+                    { position: 0.45, label: "X" },
+                    { position: 0.65, label: "Y" },
+                    { position: 0.9, label: "Z" }
+                  ],
+                  persons: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.25, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.55, label: "D" },
+                    { position: 0.7, label: "E" },
+                    { position: 0.85, label: "F" },
+                    { position: 0.95, label: "G" }
+                  ]
+                });
+              </script>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section data-markdown>
+          <textarea data-template>
+
+          # Voting Rules
+
+          </textarea>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-yellow">
+              Definition of a "Voting Rule"
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment" data-fragment-index="1" style="margin-bottom: 0.5em;">
+                Given a spatial model of policy, a set of persons with single-peaked preferences, and a specified ideal
+                point for each person, and an agenda...
+              </div>
+              <div class="fragment" data-fragment-index="3">
+                A <strong>voting rule</strong> is:
+                <ul style="margin-top: 0.5em;">
+                  <li class="fragment">A set of <strong>possible messages</strong> from which each person may choose.
+                  </li>
+                  <li class="fragment">
+                    A <strong>mapping</strong> that takes each <em>possible profile of messages</em> (one message from
+                    each person from her set of available messages) to <em>a policy from the agenda</em> that will be
+                    adopted.
+                  </li>
+                </ul>
+              </div>
+              <div id="voting-rule-definition-0" class="fragment handwritten" data-fragment-index="2"></div>
+              <script type="module">
+                import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+
+                document.getElementById('voting-rule-definition-0').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 150,
+                  id: 'voting-rule-def-0',
+                  marginX: 40,
+                  marginY: 10,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.2, label: "W" },
+                    { position: 0.45, label: "X" },
+                    { position: 0.65, label: "Y" },
+                    { position: 0.9, label: "Z" }
+                  ],
+                  persons: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.25, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.55, label: "D" },
+                    { position: 0.7, label: "E" },
+                    { position: 0.85, label: "F" },
+                    { position: 0.95, label: "G" }
+                  ]
+                });
+              </script>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-green">
+              Example: Majority Rule with a Binary Agenda
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment" data-fragment-index="1" style="margin-bottom: 0.5em;">
+                Take a spatial model of policy, an odd number of persons with single-peaked preferences, a specified
+                ideal
+                point for each person, and an agenda with <strong>exactly two</strong> policies.
+              </div>
+              <div class="fragment" data-fragment-index="3"
+                style="border: 1px solid var(--blue-900); border-radius: 0.5em; padding: 0.2em; background-color: var(--green-200); margin-bottom: 0.5em;">
+                <div class="fragment" data-fragment-index="4"><strong>Sets of Available Messages</strong></div>
+                <div class="fragment" data-fragment-index="5" style="margin-left: 2em; font-style: italic;">Each
+                  person's set of available messages is $\left\{``W",``Y"\right\}$</div>
+                <div class="fragment" data-fragment-index="4"><strong>Mapping</strong></div>
+                <div class="fragment" data-fragment-index="6" style="margin-left: 2em; font-style: italic;">
+                  Given any profile of messages (e.g. Person A sends $``W"$, Person B sends $``Y"$, Person C sends
+                  $``W"$, ..., Person G sends $``Y"$), the policy adopted is the policy named in the majority of
+                  messages.
+                </div>
+              </div>
+              <div id="majority-rule-binary-0" class="fragment handwritten" data-fragment-index="2"></div>
+              <script type="module">
+                import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+
+                document.getElementById('majority-rule-binary-0').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 150,
+                  id: 'majority-binary-0',
+                  marginX: 40,
+                  marginY: 10,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.2, label: "W" },
+                    { position: 0.65, label: "Y" }
+                  ],
+                  persons: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.25, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.55, label: "D" },
+                    { position: 0.7, label: "E" },
+                    { position: 0.85, label: "F" },
+                    { position: 0.95, label: "G" }
+                  ]
+                });
+              </script>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-yellow">
+              Example: Two-Thirds Rule with a Binary Agenda
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment" data-fragment-index="1" style="margin-bottom: 0.5em;">
+                Take a spatial model of policy, an odd number of persons with single-peaked preferences, a specified
+                ideal
+                point for each person, and an agenda with <strong>exactly two</strong> policies.
+              </div>
+              <div class="fragment" data-fragment-index="3"
+                style="border: 1px solid var(--blue-900); border-radius: 0.5em; padding: 0.2em; background-color: var(--yellow-200); margin-bottom: 0.5em;">
+                <div class="fragment" data-fragment-index="4"><strong>Sets of Available Messages</strong></div>
+                <div class="fragment" data-fragment-index="5" style="margin-left: 2em; font-style: italic;">Each
+                  person's set of available messages is $\left\{``W",``Y"\right\}$</div>
+                <div class="fragment" data-fragment-index="4"><strong>Mapping</strong></div>
+                <div class="fragment" data-fragment-index="6" style="margin-left: 2em; font-style: italic;">
+                  Given any profile of messages the policy adopted is:
+                  <ul>
+                    <li>$W$ if fewer than two-thirds of the persons send message $``Y"$</li>
+                    <li>$Y$ if two-thirds or more of the persons send message $``Y"$</li>
+                  </ul>
+                </div>
+              </div>
+              <div id="two-thirds-rule-binary-0" class="fragment handwritten" data-fragment-index="2"></div>
+              <script type="module">
+                import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+
+                document.getElementById('two-thirds-rule-binary-0').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 150,
+                  id: 'two-thirds-binary-0',
+                  marginX: 40,
+                  marginY: 10,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.2, label: "W" },
+                    { position: 0.65, label: "Y" }
+                  ],
+                  persons: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.25, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.55, label: "D" },
+                    { position: 0.7, label: "E" },
+                    { position: 0.85, label: "F" },
+                    { position: 0.95, label: "G" }
+                  ]
+                });
+              </script>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-blue">
+              Example: Unanimity Rule with a Binary Agenda
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment" data-fragment-index="1" style="margin-bottom: 0.5em;">
+                Take a spatial model of policy, an odd number of persons with single-peaked preferences, a specified
+                ideal
+                point for each person, and an agenda with <strong>exactly two</strong> policies.
+              </div>
+              <div class="fragment" data-fragment-index="3"
+                style="border: 1px solid var(--blue-900); border-radius: 0.5em; padding: 0.2em; background-color: var(--blue-200); margin-bottom: 0.5em;">
+                <div class="fragment" data-fragment-index="4"><strong>Sets of Available Messages</strong></div>
+                <div class="fragment" data-fragment-index="5" style="margin-left: 2em; font-style: italic;">Each
+                  person's set of available messages is $\left\{``W",``Y"\right\}$</div>
+                <div class="fragment" data-fragment-index="4"><strong>Mapping</strong></div>
+                <div class="fragment" data-fragment-index="6" style="margin-left: 2em; font-style: italic;">
+                  Given any profile of messages the policy adopted is:
+                  <ul>
+                    <li>$W$ if fewer than all of the persons send message $``Y"$</li>
+                    <li>$Y$ if all of the persons send message $``Y"$</li>
+                  </ul>
+                </div>
+              </div>
+              <div id="unanimity-rule-binary-0" class="fragment handwritten" data-fragment-index="2"></div>
+              <script type="module">
+                import { createSpatialDiagram } from '/src/spatial-diagram.ts';
+
+                document.getElementById('unanimity-rule-binary-0').innerHTML = createSpatialDiagram({
+                  width: 900,
+                  height: 150,
+                  id: 'unanimity-binary-0',
+                  marginX: 40,
+                  marginY: 10,
+                  fontSize: 25,
+                  policies: [
+                    { position: 0.2, label: "W" },
+                    { position: 0.65, label: "Y" }
+                  ],
+                  persons: [
+                    { position: 0.1, label: "A" },
+                    { position: 0.25, label: "B" },
+                    { position: 0.4, label: "C" },
+                    { position: 0.55, label: "D" },
+                    { position: 0.7, label: "E" },
+                    { position: 0.85, label: "F" },
+                    { position: 0.95, label: "G" }
+                  ]
+                });
+              </script>
+            </div>
+          </div>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            # Voting Rules for Agendas with More than Two Policies
+            
+            _hold on to your butts_
+          </textarea>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-yellow">
+              Example: Plurality Rule with Run-offs
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment" data-fragment-index="3"
+                style="border: 1px solid var(--blue-900); border-radius: 0.5em; padding: 0.2em; background-color: var(--yellow-200); margin-bottom: 0.5em;">
+                <div class="fragment" data-fragment-index="4"><strong>Sets of Available Messages</strong></div>
+                <div class="fragment" data-fragment-index="5" style="margin-left: 2em; font-style: italic;">Each
+                  person's set of available messages consists of all possible <em>mappings</em> that take each distinct
+                  subset of policies to a "top choice" from that subset</div>
+                <div class="fragment" data-fragment-index="4"><strong>Mapping</strong></div>
+                <div class="fragment" data-fragment-index="6" style="margin-left: 2em; font-style: italic;">
+                  <ul>
+                    <li>Take the persons' top choices from the set of <em>all</em> policies. If there is a single
+                      policy that is the top choice for the largest number of the persons, adopt that policy and stop.
+                      Otherwise...</li>
+                    <li>Take the policies that are tied for first place w.r.t. to the number of persons naming that
+                      policy as a top
+                      choice. If there is a single policy that is named "top choice" by the largest number of persons
+                      from that set, adopt that policy and stop. Otherwise...</li>
+                    <li>Take the policies that are tied for first place w.r.t. to the number of persons naming that
+                      policy as a top choice from the set in the previous step. If there is a single policy that is
+                      named "top choice" by the largest number of persons
+                      from that set, adopt that policy and stop. Otherwise...</li>
+                    <li>Continue as above until you have a winner!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-green">
+              Example: Instant Runoff Voting
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment"
+                style="border: 1px solid var(--blue-900); border-radius: 0.5em; padding: 0.2em; background-color: var(--green-200); margin-bottom: 0.5em;">
+                <a
+                  href="https://en.wikipedia.org/wiki/Instant-runoff_voting">https://en.wikipedia.org/wiki/Instant-runoff_voting</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>The Core of a Voting Rule</h1>
+        </section>
+        <section>
+
+        </section>
+      </section>
+    </div>
+  </div>
+  <script type="module" src="/src/reveal-setup.js"></script>
+</body>
+
+</html>
