@@ -49,8 +49,7 @@
 
           - Agendas
           - Voting Rules
-          - The Core of a Voting Rule
-          - Multi-issue Politics
+          - The Sincere Core of a Voting Rule
 
         </textarea>
       </section>
@@ -370,6 +369,12 @@
           </textarea>
         </section>
         <section>
+          <img src="/assets/img/0203/Nicolas_de_Condorcet.webp" width="500px" />
+        </section>
+        <section>
+          <img src="/assets/img/0203/Exécution_de_Marie_Antoinette_le_16_octobre_1793.webp" width="800px" />
+        </section>
+        <section>
           <div class="slide-stack-2">
             <div class="slide-stack-header slide-stack-header-yellow">
               Example: Plurality Rule with Run-offs
@@ -417,13 +422,141 @@
             </div>
           </div>
         </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-blue">
+              A Simple (😜) Way to Encode Any Voting Rule
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment" data-fragment-index="1"
+                style="border: 1px solid var(--blue-900); border-radius: 0.5em; padding: 0.2em; background-color: var(--blue-200); margin-bottom: 0.5em;">
+                <div class="fragment" data-fragment-index="2"><strong>Sets of Available Messages</strong></div>
+                <div class="fragment" data-fragment-index="3" style="margin-left: 2em; font-style: italic;">All the
+                  preference orderings over the alternatives. (Each person simply states an ordering!)</div>
+                <div class="fragment" data-fragment-index="2"><strong>Mapping</strong></div>
+                <div class="fragment" data-fragment-index="4" style="margin-left: 2em; font-style: italic;">
+                  Some mapping that takes each possible profile of preference orderings (one ordering for each person)
+                  to one of the policies in the agenda.
+                </div>
+              </div>
+              <div class="fragment" data-fragment-index="5" style="margin-top: 1em;">
+                <div><strong>Example: Multi-Alternative Unanimity Rule</strong></div>
+                <div class="fragment" data-fragment-index="6" style="margin-left: 2em; font-style: italic;">
+                  <ul>
+                    <li>Pick one alternative and label that alternative $Q$.</li>
+                    <li>Each person states a preference ordering over the set of alternatives.</li>
+                    <li>If there is exactly one alternative $X$ other than $Q$ that every person's stated ordering
+                      declares preferable to or
+                      indifferent to every other alternative (including $Q$), adopt that policy $X$. Otherwise adopt
+                      $Q$.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
       <section>
         <section>
-          <h1>The Core of a Voting Rule</h1>
+          <h1>The Sincere Core of a Binary Voting Rule</h1>
+        </section>
+        <section style="font-size: 0.7em;">
+          <div class="fragment" data-fragment-index="2" style="font-style: italic; text-align: left;">
+            Moses sat as magistrate among the people, while the people stood about Moses from morning until evening.
+            But when Moses's father-in-law saw how much he had to do for the people, he said…“Why do you act
+            alone, while all the people stand about you from morning until evening?” Moses replied to his father-in-law,
+            “It is because the people come to me to inquire of God. When they have a dispute, it comes before me, and I
+            decide between one person and another, and I make known the laws and teachings of God.”
+          </div>
+          <div class="fragment" data-fragment-index="3" style="font-style: italic; text-align: left;">
+            But Moses's father-in-law said to him, “…[Y]ou will surely wear yourself out…For the task is too heavy for
+            you; you cannot do it alone…Now listen to me. I will give you counsel…[S]eek out from among all the
+            people capable men who fear God, trustworthy men who spurn ill-gotten gain. Set these over [the people]
+            as chiefs of thousands, hundreds, fifties, and tens, and let them judge the people at all times. Have them
+            bring every major dispute to you, but let them decide every minor dispute themselves. Make it easier for
+            yourself by letting them share the burden with you. If you do this…you will be able to bear up; and all
+            these people too will go home unwearied.
+          </div>
+          <div style="text-align: right;">Exodus, Chapter 18, verses 13 through 23</div>
         </section>
         <section>
-
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-blue" style="font-size: 1em;">
+              Definition of "Sincere Voting" With a Binary Agenda
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div>
+                Given a spatial model of policy, a set of persons with single-peaked preferences, a specified ideal
+                point for each person, and binary agenda with policies $X$ and $Y$, and a voting rule in which each
+                person's set of messages is $\left\{ ``X", ``Y" \right\}$...
+              </div>
+              <div style="font-style: italic; margin-top: 0.5em;">
+                Each person votes "sincerely" if she selects message $``X"$ if she prefers $X$ to $Y$, and selects
+                message $``Y"$ if she prefers $Y$ to $X$.
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-blue" style="font-size: 1em;">
+              Definition of the Sincere Core of a Binary Voting Rule
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <div class="fragment">
+                Given a spatial model of policy, a set of persons with single-peaked preferences, a specified ideal
+                point for each person, and a binary voting rule...
+              </div>
+              <div class="fragment" style="font-style: italic; margin-top: 0.5em;">
+                A policy $X$ is in the <strong>sincere core</strong> of that voting rule (given the persons' ideal
+                points), if $X$ will adopted under that voting rule when persons vote sincerely regardless of the policy
+                $Y$ with which $X$ shares the agenda.
+              </div>
+              <div class="fragment" style="font-style: italic; margin-top: 0.5em;">
+                (Note: The sincere core may be empty for some voting rules and/or sets of ideal points.)
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-yellow" style="font-size: 1em;">
+              Example: Sincere Core of a Binary Majority Rule
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                Binary Rule: Given a binary agenda with alternatives $X$ and $Y$,
+                each
+                person's set of available messages is $\left\{``X",``Y" \right\}$. If a majority says "$X$", $X$ is
+                adopted.
+                Otherwise $Y$ is adopted. (Note...this is only defined for an odd-number of persons!)
+              </div>
+              <div class="fragment" style="margin-top: 0.5em">
+                Given any set of ideal points (with an odd number of ideal points!), which policies (if any) are in the
+                sincere core of binary majority rule?
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header slide-stack-header-green" style="font-size: 1em;">
+              Example: Sincere Core of Left-Unanimity Rule
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                Left-Unanimity Rule: Given a binary agenda with alternatives $L$ and $R$ (where $L$ is left of $R$),
+                each
+                person's set of available messages is $\left\{``L",``R" \right\}$. If everyone says "$R$", $R$ is
+                adopted.
+                Otherwise $L$ is adopted.
+              </div>
+              <div class="fragment" style="margin-top: 0.5em">
+                Given any set of ideal points, which policies (if any) are in the sincere core of left-unanimity rule?
+              </div>
+            </div>
+          </div>
         </section>
       </section>
     </div>
