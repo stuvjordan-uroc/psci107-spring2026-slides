@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Fun" With Spatial Models</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/simple.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Utility and Numerical Spatial Models</h1>
+        <p>February 5, 2026</p>
+      </section>
+      <section data-markdown>
+        <textarea data-template>
+
+          # Your list this week
+
+          - Work through Lesson 3 and all COUs in Lesson 3
+          - Go to your problem-solving session
+          
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          ## Recitation Section Location Changes
+
+          - Th 4:50, Harkness 112 ➡️ Th 4:50, Harkness **113**
+          - Th 6:15, Harkness 112 ➡️ Th 4:50, Harkness **113**
+          
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          ## Overview
+
+          - Why?
+          - Utility and Utility Functions
+          - Basic Numerical Spatial Model
+          - The Tent-Shaped Utility Function
+          
+
+        </textarea>
+      </section>
+
+      <section>
+        <section>
+          <h1>Why?</h1>
+        </section>
+        <section>
+          <p style="font-size: 1.2em; margin-bottom: 1em;">A thing that sucks about representative democracy</p>
+
+          <p>
+            (And yes, representative democracy sucks less than all
+            the other alternatives.)
+          </p>
+        </section>
+
+        <section style="text-align: left;">
+          <p style="font-weight: 800; margin-bottom: 1em;">Suppose you were a registered voter in the 2024 U.S.
+            presidential election who had preferences about two distinct policy
+            issues....
+          </p>
+          <ul>
+            <li class="fragment">The extent to which the government would make it difficult to reside in the U.S. as an
+              immigrant without a
+              current and valid visa.</li>
+            <li class="fragment">The number of armed paramilitaries that would be deployed within U.S. cities, empowered
+              to forcibly
+              detain persons who they suspect of violating
+              U.S. immigration law.</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="handwritten"
+            style="position: relative; width: 960px; height: 700px; color: var(--blue-900); margin: 0 auto;">
+            <div id="immigration-diagram-0" class="fragment fade-in-then-out" data-fragment-index="1"></div>
+            <div id="immigration-diagram-1" class="fragment fade-in-then-out" data-fragment-index="2"
+              style="position: absolute; top: 0; left: 0;"></div>
+            <div id="immigration-diagram-2" class="fragment fade-in-then-out" data-fragment-index="3"
+              style="position: absolute; top: 0; left: 0;"></div>
+            <div id="immigration-diagram-3" class="fragment" data-fragment-index="4"
+              style="position: absolute; top: 0; left: 0;"></div>
+          </div>
+
+          <div class="fragment" data-fragment-index="5"
+            style="border-radius: 0.5em; position: absolute; top: 0; left: 0; width: 45%; padding: 0.2em; background-color: var(--yellow-200); border: solid 2px var(--blue-900); font-size: 0.6em; text-align: left;">
+            <div class="fragment" data-fragment-index="6" style="margin-bottom: 0.5em;">Imagine a voter who's top choice
+              was
+              <span class="handwritten">R<sub>y</sub></span> + <span class="handwritten">D<sub>x</sub></span>.
+            </div>
+            <div class="fragment" style="margin-bottom: 0.5em;" data-fragment-index="7">
+              <span class="handwritten">R<sub>y</sub></span> + <span class="handwritten">D<sub>x</sub></span> was not an
+              option on the ballot.
+            </div>
+            <div class="fragment" data-fragment-index="8">So any voter with those preferences had to
+              <strong>trade</strong> their desire for fewer paramilitaries <strong>off against</strong> their desire
+              to increase the difficulty of residing undocumented.
+            </div>
+            </ul>
+          </div>
+
+          <div class="fragment" data-fragment-index="9"
+            style="border-radius: 0.5em; position: absolute; bottom: 0; right: 0; width: 45%; padding: 0.2em; background-color: var(--green-200); border: solid 2px var(--blue-900); font-size: 0.6em; text-align: left;">
+            <div style="margin-bottom: 0.5em;">What exactly is it that sucks about representative democracy that this
+              example illustrates?
+            </div>
+            <div>What does it mean to "trade" one desire "off against" another?
+            </div>
+          </div>
+
+          <script type="module">
+            import { createSpatialDiagram2D } from "/src/spatial-diagram-2d.ts";
+
+            // First diagram - only horizontal axis visible
+            document.getElementById("immigration-diagram-0").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "immigration-spatial-0",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false }
+            });
+
+            // Hide the vertical axis elements in the first diagram
+            const svg0 = document.querySelector("#immigration-diagram-0 svg");
+            if (svg0) {
+              // Hide vertical axis line by checking if x1 === x2 (vertical line)
+              const lines = svg0.querySelectorAll("line");
+              lines.forEach(line => {
+                const x1 = parseFloat(line.getAttribute("x1"));
+                const x2 = parseFloat(line.getAttribute("x2"));
+                const y1 = parseFloat(line.getAttribute("y1"));
+                const y2 = parseFloat(line.getAttribute("y2"));
+                // Vertical line has same x coordinates but different y
+                if (x1 === x2 && y1 !== y2) {
+                  line.style.strokeWidth = "0";
+                }
+              });
+            }
+
+            // Second diagram - full diagram with both axes
+            document.getElementById("immigration-diagram-1").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "immigration-spatial-1",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false }
+            });
+
+            // Third diagram - add horizontal policies
+            document.getElementById("immigration-diagram-2").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "immigration-spatial-2",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false },
+              horizontalPolicies: [
+                { position: 0.25, label: "D<sub>x</sub>", asLaTeX: false },
+                { position: 0.75, label: "R<sub>x</sub>", asLaTeX: false }
+              ],
+            });
+
+            // Fourth diagram - add vertical policies
+            document.getElementById("immigration-diagram-3").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "immigration-spatial-3",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false },
+              horizontalPolicies: [
+                { position: 0.25, label: "D<sub>x</sub>", asLaTeX: false },
+                { position: 0.75, label: "R<sub>x</sub>", asLaTeX: false }
+              ],
+              verticalPolicies: [
+                { position: 0.75, label: "D<sub>y</sub>", asLaTeX: false },
+                { position: 0.25, label: "R<sub>y</sub>", asLaTeX: false }
+              ]
+            });
+          </script>
+        </section>
+        <section>
+          Modeling preferences with "how much"
+        </section>
+        <section>
+          <div class="handwritten"
+            style="position: relative; width: 960px; height: 700px; color: var(--blue-900); margin: 0 auto;">
+            <div id="preferences-diagram-0" class="fragment fade-in-then-out" data-fragment-index="1"></div>
+            <div id="preferences-diagram-1" class="fragment" data-fragment-index="2"
+              style="position: absolute; top: 0; left: 0;"></div>
+
+          </div>
+          <div class="fragment fade-in-then-out" data-fragment-index="2"
+            style="font-size: 0.7em; border-radius: 0.5em; position: absolute; top: 0; left: 0; width: 40%; padding: 0.2em; background-color: var(--yellow-200); border: solid 2px var(--blue-900); font-size: 0.5em; text-align: left;">
+            Imagine a person with single-peaked preferences on each policy issue whose ideal point on each policy is
+            located as drawn here.
+          </div>
+          <div class="fragment fade-in-then-out" data-fragment-index="3"
+            style="font-size: 0.7em; border-radius: 0.5em; position: absolute; top: 0; left: 0; width: 40%; padding: 0.2em; background-color: var(--green-200); border: solid 2px var(--blue-900); font-size: 0.5em; text-align: left;">
+            <div>What is her preference ordering over all the conceivable (not necessarily
+              available!) policy bundles?
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 1em;">
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+            </div>
+          </div>
+          <div class="fragment fade-in-then-out" data-fragment-index="4"
+            style="border-radius: 0.5em; position: absolute; top: 0; left: 0; width: 40%; padding: 0.2em; background-color: var(--yellow-200); border: solid 2px var(--blue-900); font-size: 0.5em; text-align: left;">
+            <div>Given our definition of single-peaked preferences as stated so far, the
+              ordering is only partially
+              defined. <strong>Why???</strong>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 1em;">
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span>:
+              </div>
+              <div><span class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span> preferred to <span
+                  class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span></div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(R<sub>x</sub>,D<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+              <div style="font-weight: 800;">
+                <span class="handwritten">(D<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                  class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+              </div>
+              <div>?</div>
+            </div>
+          </div>
+          <div class="fragment" data-fragment-index="5"
+            style="border-radius: 0.5em; position: absolute; top: 0; left: 0; width: 40%; padding: 0.2em; background-color: var(--green-200); border: solid 2px var(--blue-900); font-size: 0.5em; text-align: left;">
+            <div style="font-weight: 800;">
+              <span class="handwritten">(R<sub>x</sub>,R<sub>y</sub>)</span> vs. <span
+                class="handwritten">(D<sub>x</sub>,D<sub>y</sub>)</span>:
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 1em; align-items: center;">
+              <div>Distance change from moving from <span class="handwritten">R<sub>x</sub></span> to <span
+                  class="handwritten">D<sub>x</sub></span>
+              </div>
+              <div>
+                <svg width="70" height="10">
+                  <defs>
+                    <marker id="arrow-start" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                      <polyline points="5,1 2,3 5,5" stroke="currentColor" fill="none" stroke-width="1" />
+                    </marker>
+                    <marker id="arrow-end" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                      <polyline points="1,1 4,3 1,5" stroke="currentColor" fill="none" stroke-width="1" />
+                    </marker>
+                  </defs>
+                  <line x1="5" y1="5" x2="65" y2="5" stroke="currentColor" stroke-width="2"
+                    marker-start="url(#arrow-start)" marker-end="url(#arrow-end)" />
+                </svg>
+              </div>
+              <div>Distance change from moving from <span class="handwritten">D<sub>y</sub></span> to <span
+                  class="handwritten">R<sub>y</sub></span>
+              </div>
+              <div>
+                <svg width="40" height="10">
+                  <defs>
+                    <marker id="arrow-start" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                      <polyline points="5,1 2,3 5,5" stroke="currentColor" fill="none" stroke-width="1" />
+                    </marker>
+                    <marker id="arrow-end" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                      <polyline points="1,1 4,3 1,5" stroke="currentColor" fill="none" stroke-width="1" />
+                    </marker>
+                  </defs>
+                  <line x1="5" y1="5" x2="35" y2="5" stroke="currentColor" stroke-width="2"
+                    marker-start="url(#arrow-start)" marker-end="url(#arrow-end)" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="fragment" data-fragment-index="6"
+            style="border-radius: 0.5em; position: absolute; bottom: 0; left: 0; width: 40%; padding: 0.2em; background-color: var(--yellow-200); border: solid 2px var(--blue-900); font-size: 0.6em; text-align: left;">
+            But those distances are just artifacts of the way we drew the diagram!!!! Our model (so far) does not depict
+            <em>how much</em> a loss of a given distance on one policy issue matters to this person <em>relative</em> to
+            a loss of a given distance on the other issue!
+          </div>
+          <script type="module">
+            import { createSpatialDiagram2D } from "/src/spatial-diagram-2d.ts";
+
+            // First diagram - full diagram with both horizontal and vertical policies
+            document.getElementById("preferences-diagram-0").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "preferences-spatial-0",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false },
+              horizontalPolicies: [
+                { position: 0.25, label: "D<sub>x</sub>", asLaTeX: false },
+                { position: 0.75, label: "R<sub>x</sub>", asLaTeX: false }
+              ],
+              verticalPolicies: [
+                { position: 0.75, label: "D<sub>y</sub>", asLaTeX: false },
+                { position: 0.25, label: "R<sub>y</sub>", asLaTeX: false }
+              ]
+            });
+
+            // Second diagram - same as first but with a person at (0.6, 0.6) with guides
+            document.getElementById("preferences-diagram-1").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "preferences-spatial-1",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false },
+              horizontalPolicies: [
+                { position: 0.25, label: "D<sub>x</sub>", asLaTeX: false },
+                { position: 0.75, label: "R<sub>x</sub>", asLaTeX: false }
+              ],
+              verticalPolicies: [
+                { position: 0.75, label: "D<sub>y</sub>", asLaTeX: false },
+                { position: 0.25, label: "R<sub>y</sub>", asLaTeX: false }
+              ],
+              persons: [
+                { x: 0.7, y: 0.6, label: "😢", asLaTeX: false, guides: true }
+              ]
+            });
+          </script>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Utility and Utility Functions</h1>
+        </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-blue">
+              Utility Representation of a Preference
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                Take any set of alternatives. (e.g. $A$, $B$, $C$, $D$, etc.)
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                A <strong>utility representation</strong> of a person's preferences over that set assigns a number
+                $U(x)$ to each alternative $x$.
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                Given any pair of alternatives $x$ and $y$...
+                <ul>
+                  <li>$U(x) > U(y)$ means "the person prefers $x$ to $y$"</li>
+                  <li>$U(y) > U(x)$ means "the person prefers $y$ to $x$"</li>
+                  <li>$U(x) = U(y)$ means "the person is indifferent between $x$ and $y$"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Example
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                Construct a utility representation of your preference ordering over the following Beyonce albums:
+                <em>Lemonade, Cowboy Carter, Dangerously In Love, Renaissance</em>
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                Here's my ranking (favorite to least-favorite): Lemonade, Cowboy Carter, Dangerously In Love,
+                Renaissance
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                <div>So I'll go with the following</div>
+                <ul>
+                  <li>$U(\text{lemonade}) = 403$</li>
+                  <li>$U(\text{cowboy carter}) = 6$</li>
+                  <li>$U(\text{renaissance}) = -32$</li>
+                  <li>$U(\text{dangerously in love}) = -33$</li>
+                </ul>
+              </div>
+            </div>
+            <div class="fragment handwritten"
+              style="position: absolute; bottom: 0; right: 0; font-size: 0.7em; width: 50%; border: solid 2px var(--blue-900); border-radius: 0.5em; background-color: var(--yellow-200);">
+              <div style="font-weight: 800; margin-bottom: 1em; text-align: center; text-decoration: underline;">
+                Important
+                Notes</div>
+              <ul style="text-align: left;">
+                <li>Negative vs. positive doesn't mean anything. (Negative isn't "extra special bad").</li>
+                <li>All that matters is ordering. (We will need to clarify this later!)</li>
+                <li>You get the same "meaning" from any transformation that preserves ordering, such as adding a
+                  the same constant to every value.</li>
+              </ul>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Example
+            </div>
+            <div class="slide-stack-body">
+              <div>
+                Construct a utility representation of your preference ordering over the following Beyonce albums:
+                <em>Lemonade, Cowboy Carter, Dangerously In Love, Renaissance</em>
+              </div>
+              <div style="margin-top: 1em;">
+                Here's my ranking (favorite to least-favorite): Lemonade, Cowboy Carter, Dangerously In Love,
+                Renaissance
+              </div>
+              <div style="margin-top: 1em;">
+                <div>So I'll go with the following</div>
+                <ul>
+                  <li>$U(\text{lemonade}) = 403 - \text{a bajillion}$</li>
+                  <li>$U(\text{cowboy carter}) = 6 - \text{a bajillion}$</li>
+                  <li>$U(\text{renaissance}) = -32 - \text{a bajillion}$</li>
+                  <li>$U(\text{dangerously in love}) = -33 - \text{a bajillion}$</li>
+                </ul>
+              </div>
+            </div>
+            <div class="handwritten"
+              style="position: absolute; bottom: 0; right: 0; font-size: 0.7em; width: 50%; border: solid 2px var(--blue-900); border-radius: 0.5em; background-color: var(--yellow-200);">
+              <div style="font-weight: 800; margin-bottom: 1em; text-align: center; text-decoration: underline;">
+                This depicts exactly the same thing as the model on the previous slide!!!</div>
+            </div>
+          </div>
+
+        </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">Utility function</div>
+            <div class="slide-stack-body">
+              <div class="fragment" style="margin-bottom: 1em;">
+                Take any set of alternatives. (e.g. $A$, $B$, $C$, $D$, etc.)
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">
+                Suppose that every alternative has a defined value on each of a set of characteristics.
+              </div>
+              <div class="fragment">
+                A utility function assigns a utility level to any generic alternative <em>as a function</em> of the that
+                alternative's value on the characteristics.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Example
+            </div>
+            <div class="slide-stack-body">
+              <div>
+                Construct a utility function to represent your preferences over playlists.
+              </div>
+              <div class="handwritten" style="margin-top: 1em;">
+                (To do this, you come up with one or more characteristics that any given playlist could have. Then you
+                specify a function that assigns a utility value to any given playlist on the basis of its values with
+                respect to those characteristics.)
+              </div>
+              <div style="margin-top: 1em;">
+                <div style="font-size:0.7em; var(--grey-200); border: solid 2px var(--blue-900); border-radius: 0.5em;">
+                  <div style="font-weight: 800;">Some characteristics of playlists</div>
+                  <ul>
+                    <li>Number of Frank Ocean songs</li>
+                    <li>Whether it includes anything by Bob Seger</li>
+                  </ul>
+                  <div style="margin-top: 1em;"><strong>Utility level</strong>
+                    $$
+                    \text{number of Frank Ocean songs} + \begin{cases}
+                    -1,000,000,000,000 & \text{if any Bob Seger songs} \\
+                    0 & \text{otherwise}
+                    \end{cases}
+                    $$
+                  </div>
+                </div>
+                <div class="fragment handwritten"
+                  style="position: absolute; bottom: 0; right: 0; font-size: 0.8em; width: 50%; border: solid 2px var(--blue-900); border-radius: 0.5em; background-color: var(--yellow-200);">
+                  <div style="font-weight: 800; margin-bottom: 1em;">
+                    A utility function is nothing fancy. It's just a way to...
+                    <ul>
+                      <li>...produce a utility representation of preferences over any arbitrary subset of a set of
+                        alternatives.</li>
+                      <li>...depict the relationship between the characteristics of a thing and that thing's
+                        "preferability" to a person.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">Example: How utility functions let us model the way a person resolves
+              conflicts between values </div>
+            <div class="slide-stack-body">
+              <div
+                style="margin-bottom: 1em; font-size:0.7em; var(--grey-200); border: solid 2px var(--blue-900); border-radius: 0.5em;">
+                <div style="font-weight: 800;">Some characteristics of playlists</div>
+                <ul>
+                  <li>Number of Frank Ocean songs</li>
+                  <li>Whether it includes anything by Bob Seger</li>
+                </ul>
+                <div style="margin-top: 1em;"><strong>Utility level</strong>
+                  $$
+                  \text{number of Frank Ocean songs} + \begin{cases}
+                  -1,000,000,000,000 & \text{if any Bob Seger songs} \\
+                  0 & \text{otherwise}
+                  \end{cases}
+                  $$
+                </div>
+              </div>
+              <div class="fragment handwritten">
+                Take any pair of playlists $A$ and $B$. Suppose that $A$ includes a Bob Seeger song and $B$ does not.
+                How
+                many more Frank Ocean songs must $A$ have relative to $B$ for the person whose preferences are depicted
+                by this utility function to prefer $A$ to $B$?
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Basic Numerical Spatial Model</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Definition: The Numerical Spatial Model
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment" style="margin-bottom: 1em;">
+                Take any set of policies differentiated by their relative degrees of <em>something-ness</em>.
+              </div>
+
+              <div class="fragment" style="margin-bottom: 1em;">
+                Assign a number to each policy, with higher number assigned to policies with more
+                <em>something-ness!</em>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="handwritten"
+            style="position: relative; width: 960px; height: 700px; color: var(--blue-900); margin: 0 auto;">
+            <div id="numerical-diagram-0" class="fragment fade-in-then-out" data-fragment-index="1"></div>
+            <div id="numerical-diagram-1" class="fragment" data-fragment-index="2"
+              style="position: absolute; top: 0; left: 0;"></div>
+            <div class="fragment" data-fragment-index="3"
+              style="position: absolute; top: 0; left: 0; width: 40%; text-align: left; font-size: 0.8em; background-color: var(--yellow-200); padding: 0.5em; border: solid 2px var(--blue-900); border-radius: 0.5em;">
+              That's it!!! Now it's a <strong>numerical</strong> spatial model!
+            </div>
+          </div>
+
+          <script type="module">
+            import { createSpatialDiagram2D } from "/src/spatial-diagram-2d.ts";
+
+            // First diagram - same as earlier
+            document.getElementById("numerical-diagram-0").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "numerical-spatial-0",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false },
+              horizontalPolicies: [
+                { position: 0.25, label: "D<sub>x</sub>", asLaTeX: false },
+                { position: 0.75, label: "R<sub>x</sub>", asLaTeX: false }
+              ],
+              verticalPolicies: [
+                { position: 0.75, label: "D<sub>y</sub>", asLaTeX: false },
+                { position: 0.25, label: "R<sub>y</sub>", asLaTeX: false }
+              ]
+            });
+
+            // Second diagram - same but with endpoint labels
+            document.getElementById("numerical-diagram-1").innerHTML = createSpatialDiagram2D({
+              width: 960,
+              height: 700,
+              id: "numerical-spatial-1",
+              marginX: 80,
+              marginY: 30,
+              fontSize: 18,
+              horizontalLabel: { label: "difficulty residing undocumented", asLaTeX: false },
+              verticalLabel: { label: "number of paramilitaries", asLaTeX: false },
+              horizontalPolicies: [
+                { position: 0, label: "-1", asLaTeX: false },
+                { position: 0.25, label: "D<sub>x</sub>", asLaTeX: false },
+                { position: 0.75, label: "R<sub>x</sub>", asLaTeX: false },
+                { position: 1, label: "1", asLaTeX: false }
+              ],
+              verticalPolicies: [
+                { position: 0, label: "-1", asLaTeX: false },
+                { position: 0.25, label: "R<sub>y</sub>", asLaTeX: false },
+                { position: 0.75, label: "D<sub>y</sub>", asLaTeX: false },
+                { position: 1, label: "1", asLaTeX: false }
+              ]
+            });
+          </script>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>The tent shaped utility function</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Definition: The Tent Shaped Utility Function
+            </div>
+            <div class="slide-stack-body">
+              <div style="margin-bottom: 1em;">
+                ...models a person's preferences over policies in a numerical spatial model.
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">Let $x$ be the <em>something-ness</em> of any given
+                policy....</div>
+              <div class="fragment" style="margin-bottom: 1em;">Let $p$ be the person's ideal level of
+                <em>something-ness</em>...</div>
+              <div class="fragment" style="margin-bottom: 1em;">The person's utility from a policy with
+                <em>something-ness</em> is $x$:
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">
+                $$
+                - | x - p |
+                $$
+              </div>
+            </div>
+        </section>
+      </section>
+    </div>
+  </div>
+  <script type="module" src="/src/reveal-setup.js"></script>
+</body>
+
+</html>
