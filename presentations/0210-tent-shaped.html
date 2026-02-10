@@ -31,6 +31,14 @@
         </textarea>
       </section>
 
+
+      <section data-markdown>
+        <textarea data-template>
+
+          COU how-to videos now live! 
+
+        </textarea>
+      </section>
       <section>
         <h1>Overview</h1>
         <ul>
@@ -42,7 +50,7 @@
 
       <section>
         <section>
-          Quick review: Numerical Spacial Model & Utility Functions
+          Quick review: Numerical Spatial Model & Utility Functions
         </section>
 
         <section>
@@ -70,18 +78,211 @@
             </div>
             <div class="slide-stack-body">
               <div class="fragment" style="margin-bottom: 1em;">
-                To what extent do we require documentation and verification of identities and income sources for persons
-                and businesses to access banking services?
+                To what extent is a chicken farmer compensated per-chicken-culled when avian flu is detected in her
+                flock?
               </div>
 
               <div class="fragment" style="margin-bottom: 1em;">
-                Let...
+                For any given policy choice on this issue, let the number $v$ be the extent to which a farmer is
+                compensated per-chicken culled when avian flu is detected in her flock.
               </div>
             </div>
           </div>
         </section>
 
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Utility Representation of a Preference
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                Take any set of alternatives. (e.g. $A$, $B$, $C$, $D$, etc.)
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                A <strong>utility representation</strong> of a person's preferences over that set assigns a number
+                $U(x)$ to each alternative $x$.
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                Given any pair of alternatives $x$ and $y$...
+                <ul>
+                  <li>$U(x) > U(y)$ means "the person prefers $x$ to $y$"</li>
+                  <li>$U(y) > U(x)$ means "the person prefers $y$ to $x$"</li>
+                  <li>$U(x) = U(y)$ means "the person is indifferent between $x$ and $y$"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">
+              Utility Representation of a Preference: Example
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                My preferences over the various Harry Potter books
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                I despise all of them equally, and am (with one exception) completely indifferent between which I must
+                tolerate. So...
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                <ul>
+                  <li>$U(\text{philosopher's stone}) = 40$</li>
+                  <li>$U(\text{chamber of secrets}) = 40$</li>
+                  <li>$U(\text{prisoner of azkaban}) = 40$</li>
+                  <li>$U(\text{goblet of fire}) = 41$ <span class="handwritten">
+                      (I hate this slightly less than the others, because one
+                      of the children dies.)
+                    </span></li>
+                  <li>$U(\text{order of the phoenix}) = 40$</li>
+                  <li>$U(\text{half-blood prince}) = 40$</li>
+                  <li>$U(\text{deathly hallows}) = 40$</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">Utility function</div>
+            <div class="slide-stack-body">
+              <div class="fragment" style="margin-bottom: 1em;">
+                Take any set of alternatives. (e.g. $A$, $B$, $C$, $D$, etc.)
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">
+                Suppose that every alternative has a defined value on each of a set of characteristics.
+              </div>
+              <div class="fragment">
+                A utility function assigns a utility level to any generic alternative <em>as a function</em> of the that
+                alternative's value on the characteristics.
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">Utility Function: Example</div>
+            <div class="slide-stack-body" style="font-size: 0.6em;">
+              <div class="fragment" style="margin-bottom: 1em;">
+                In the hyper-polarized politics of the U.S., all kinds of consumer products have
+                partisan associations. Think, for instance, of music produced by the artists Bad Bunny and
+                Kid Rock. Since the ridiculous Super Bowl kerfuffle, many persons may perceive listening to Bad Bunny as
+                a "Democrat" thing to do and listening to Kid Rock as a "Republican" thing to do.
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">
+                Let's model a person caught up in this insanity!
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">
+                Imagine a person choosing which of a set of products to buy. For any given product $x$, let...
+                <ul>
+                  <li>...$p_x$ be a number that capture the extent to which $x$ serves its
+                    intended purpose <em>as a product</em>.</li>
+                  <li>...$r_x$ be a number that captures the percieved "Republican-ness" of purchasing $A$ and $B$.
+                  </li>
+                </ul>
+              </div>
+              <div class="fragment">
+                Suppose there are two types of persons -- persons who want to "act Democrat" and persons who want
+                to "act Republican". Let the utility of a person who wants to "act Democrat" from purchasing product $x$
+                be:
+                $$
+                p_x -r_x
+                $$
+                And let the utility of a person who wants to "act Republican" from purchasing product $x$ be:
+                $$
+                p_x + r_x
+                $$
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>The Tent-Shaped Utility Function</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Definition: The Tent Shaped Utility Function
+            </div>
+            <div class="slide-stack-body">
+              <div style="margin-bottom: 1em;">
+                ...models a person's preferences over policies in a numerical spatial model.
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">Let $x$ be the <em>something-ness</em> of any given
+                policy....</div>
+              <div class="fragment" style="margin-bottom: 1em;">Let $p$ be the person's ideal level of
+                <em>something-ness</em>...
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">The person's utility from a policy with
+                <em>something-ness</em> is $x$:
+              </div>
+              <div class="fragment" style="margin-bottom: 1em;">
+                $$
+                - | x - p |
+                $$
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">
+              Why It's Called "Tent-Shaped"
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.6em;">
+              <ul>
+                <li class="fragment">In normal human language:
+                  $$
+                  - | x - p | = \text{``the negative of the distance between x and p"}
+                  $$
+                </li>
+                <li class="fragment">
+                  So if $x \lt p$...
+                  $$
+                  \text{distance between $x$ and $p$ is: } p - x
+                  $$
+                  $$
+                  \text{negative distance between $x$ and $p$ is: } - (p - x) = x - p
+                  $$
+                </li>
+                <li class="fragment">
+                  And if $x \gt p$...
+                  $$
+                  \text{distance between $x$ and $p$ is: } x - p
+                  $$
+                  $$
+                  \text{negative distance between $x$ and $p$ is: } - (x - p) = p - x
+                  $$
+                </li>
+                <li class="fragment">
+                  So...
+                  $$
+                  - | x - p| =
+                  \begin{cases}
+                  x - p & \text{if } x \lt p \\
+                  p - x & \text{if } x \gt p
+                  \end{cases}
+                  $$
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-blue">
+              Why???
+            </div>
+            <div class="slide-stack-body">
+              Because it's the simplest way to model single-peaked preferences when we need to use utility functions!
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   </div>
