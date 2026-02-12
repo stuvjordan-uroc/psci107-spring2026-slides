@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modeling Tradeoffs</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/simple.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Modeling Tradeoffs</h1>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          # Your list this week
+
+          - 🔄Assess-learn-practice🔄 using the practice exams 
+          - Go to your problem-solving session
+          - Module 1 exam in-class on Tuesday next week
+          
+
+        </textarea>
+      </section>
+
+
+      <section data-markdown>
+        <textarea data-template>
+
+          COU how-to videos now live! 
+
+        </textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+
+          # What happens next week
+
+          - **Tuesday**: Module 1 Exam in Class
+          - **Thursday**: No class meeting
+          - **Thursday/Friday**: No recitation sections
+          
+
+        </textarea>
+      </section>
+
+      <section>
+        <h1>Overview</h1>
+        <ul>
+          <li>Will voters protect democracy?</li>
+          <li>Modeling the tradeoff</li>
+          <li>Analyzing the model</li>
+          <li>Modeling challenge</li>
+        </ul>
+      </section>
+
+      <section>
+        <section>
+          <h1>Will voter's protect democracy?</h1>
+        </section>
+        <section>
+          <img src="/assets/img/0212/Graham-Svolik-abstract.webp" width="600px" />
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-blue">Two-Stage Survey</div>
+            <div class="slide-stack-body">
+              <div style="position: relative; width: 100%; height: 100%;">
+                <div class="fragment fade-in-then-out" data-fragment-index="2">
+                  <h4>Stage One</h4>
+                  <div
+                    style="border: 1px solid var(--grey-600); border-radius: 0.5em; background-color: var(--grey-100); padding: 1em; font-size: 0.7em;">
+                    For each of the following policies, select the number between 0 and 100 that best describes how
+                    strongly would you
+                    support or oppose the policy described, where 0 means "strongly oppose", 50 means "neutral", and 100
+                    means "strongly support".
+                    <ul style="margin-top: 1.5em; width: 80%;">
+                      <li>
+                        Local police should not help federal authorities to enforce immigration laws.
+                      </li>
+                      <li>
+                        Local police should turn over to federal authorities only illegal immigrants accused of violent
+                        crimes.
+                      </li>
+                      <li>
+                        Local police should turn over to federal authorities every illegal immigrant they encounter.
+                      </li>
+                      <li>
+                        Local police should aggressively search for illegal immigrants and turn them over to federal
+                        authorities.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="fragment fade-in-then-out" data-fragment-index="3"
+                  style="position: absolute; top: 0; left: 0; width: 100%;">
+                  <h4>Stage Two</h4>
+                  <div
+                    style="border: 1px solid var(--grey-600); border-radius: 0.5em; background-color: var(--grey-100); padding: 1em; font-size: 0.7em;">
+                    Suppose the following two candidates were running for the seat in the state legislature that
+                    represents the district in which you live. Which of the two would you be more likely to vote for.
+                    <div style="display: flex; justify-content: center;">
+                      <div
+                        style="display: grid; grid-template-columns: 1fr 1fr; width: 85%; margin-top: 0.5em; font-size: 0.8em;gap: 1em;">
+                        <div
+                          style="border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Nancy Fishburne</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Democrat</div>
+                          <div style="grid-column: 1 / -1;">Opposes local police turning over to federal authorities
+                            every
+                            illegal immigrant they
+                            encounter.</div>
+                          <div style="grid-column: 1 / -1;">
+                            Supported a proposal to reduce the number of polling stations in areas that support
+                            Republican
+                            candidates.
+                          </div>
+                        </div>
+                        <div
+                          style="border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Jeff Greenfield</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Republican</div>
+                          <div style="grid-column: 1 / -1;">Supports local police turning over to federal authorities
+                            every
+                            illegal immigrant they
+                            encounter.</div>
+                          <div style="grid-column: 1 / -1;">
+                            Served on the state's Board of elections, which handles local, state, and federal elections.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fragment fade-in-then-out" data-fragment-index="4"
+                  style="position: absolute; top: 0; left: 0; width: 100%;">
+                  <h4>Stage Two</h4>
+                  <div
+                    style="border: 1px solid var(--grey-600); border-radius: 0.5em; background-color: var(--grey-100); padding: 1em; font-size: 0.7em;">
+                    Suppose the following two candidates were running for the seat in the state legislature that
+                    represents the district in which you live. Which of the two would you be more likely to vote for.
+                    <div style="display: flex; justify-content: center;">
+                      <div
+                        style="display: grid; grid-template-columns: 1fr 1fr; width: 85%; margin-top: 0.5em; font-size: 0.8em;gap: 1em;">
+                        <div
+                          style="border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Jerome Singleton</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Democrat</div>
+                          <div style="grid-column: 1 / -1;">Supports local police turning over to federal authorities
+                            only illegal immigrants accused of violent crimes.</div>
+                          <div style="grid-column: 1 / -1;">
+                            Worked on a plan to change the state legislature's committee structure.
+                          </div>
+                        </div>
+                        <div
+                          style="border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Kim Flores</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Republican</div>
+                          <div style="grid-column: 1 / -1;">Strongly opposes local police turning over to federal
+                            authorities only illegal immigrants accused of violent crimes.</div>
+                          <div style="grid-column: 1 / -1;">
+                            Said that the current governor (a Republican) should prosecute journalists who accuse him of
+                            misconduct without revealing their sources.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">What you should notice</div>
+            <div class="slide-stack-body">
+              <div style="position: relative; width: 100%; height: 100%;">
+                <div class="fragment fade-in-then-out" data-fragment-index="1"
+                  style="position: absolute; top: 0; left: 0; width: 100%;">
+                  <h4>Will voters that agree with Nancy on immigration defect because of her anti-democratic position?
+                  </h4>
+                  <div
+                    style="border: 1px solid var(--grey-600); border-radius: 0.5em; background-color: var(--grey-100); padding: 1em; font-size: 0.7em;">
+                    Suppose the following two candidates were running for the seat in the state legislature that
+                    represents the district in which you live. Which of the two would you be more likely to vote for.
+                    <div style="display: flex; justify-content: center;">
+                      <div
+                        style="display: grid; grid-template-columns: 1fr 1fr; width: 85%; margin-top: 0.5em; font-size: 0.8em;gap: 1em;">
+                        <div
+                          style="background-color: var(--yellow-200); border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Nancy Fishburne</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Democrat</div>
+                          <div style="grid-column: 1 / -1;">Opposes local police turning over to federal authorities
+                            every
+                            illegal immigrant they
+                            encounter.</div>
+                          <div style="grid-column: 1 / -1; font-weight: 800;">
+                            Supported a proposal to reduce the number of polling stations in areas that support
+                            Republican
+                            candidates.
+                          </div>
+                        </div>
+                        <div
+                          style="border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Jeff Greenfield</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Republican</div>
+                          <div style="grid-column: 1 / -1;">Supports local police turning over to federal authorities
+                            every
+                            illegal immigrant they
+                            encounter.</div>
+                          <div style="grid-column: 1 / -1;">
+                            Served on the state's Board of elections, which handles local, state, and federal elections.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="fragment fade-in-then-out" data-fragment-index="4"
+                  style="position: absolute; top: 0; left: 0; width: 100%;">
+                  <h4>Will voters that agree with Kim on immigration defect because of her anti-democratic position?...
+                  </h4>
+                  <div
+                    style="border: 1px solid var(--grey-600); border-radius: 0.5em; background-color: var(--grey-100); padding: 1em; font-size: 0.7em;">
+                    Suppose the following two candidates were running for the seat in the state legislature that
+                    represents the district in which you live. Which of the two would you be more likely to vote for.
+                    <div style="display: flex; justify-content: center;">
+                      <div
+                        style="display: grid; grid-template-columns: 1fr 1fr; width: 85%; margin-top: 0.5em; font-size: 0.8em;gap: 1em;">
+                        <div
+                          style="border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Jerome Singleton</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Democrat</div>
+                          <div style="grid-column: 1 / -1;">Supports local police turning over to federal authorities
+                            only illegal immigrants accused of violent crimes.</div>
+                          <div style="grid-column: 1 / -1;">
+                            Worked on a plan to change the state legislature's committee structure.
+                          </div>
+                        </div>
+                        <div
+                          style="background-color: var(--yellow-200); border: 1px solid var(--grey-600); border-radius: 0.5em; display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 1em;">
+                          <div><strong>Name:</strong></div>
+                          <div>Kim Flores</div>
+                          <div><strong>Party:</strong></div>
+                          <div>Republican</div>
+                          <div style="grid-column: 1 / -1;">Strongly opposes local police turning over to federal
+                            authorities only illegal immigrants accused of violent crimes.</div>
+                          <div style="grid-column: 1 / -1; font-weight: 800;">
+                            Said that the current governor (a Republican) should prosecute journalists who accuse him of
+                            misconduct without revealing their sources.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">
+              The Actual Survey
+            </div>
+            <div class="slide-stack-body">
+              <div style="position: relative">
+                <ul class="fragment fade-in-then-out" data-fragment-index="1">
+                  <li>About 20,000 respondents (all likely voters)</li>
+                  <li>Asks for positions on 4 different issues -- Immigration, marijuana legalization, school funding,
+                    income tax rates.</li>
+                  <li>Presented with 16 different hypothetical candidate pairs.</li>
+                  <li>Policy position contrast in each pair randomly chosen from the four issues.</li>
+                  <li>Candidate aligned with voter on policy takes anti-democratic position chosen at random from a
+                    list.
+                  </li>
+                  <li>Candidate mis-aligned with voter on policy takes some "neutral" position on something
+                    uninteresting, randomly chosen from a list.</li>
+                </ul>
+                <div class="fragment" data-fragment-index="2"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                    <div>
+                      <h4>Anti-Democratic Positions</h4>
+                      <ul style="font-size: 0.7em;">
+                        <li>
+                          Supported proposal to reduce the number of polling stations in areas that support [opposite
+                          party].
+                        </li>
+                        <li>Said the [own party] governor should prosecute journalist who accuse him of misconudct
+                          without revealing sources.</li>
+                        <li>Said the [own party] governor should rule by executive order if [opposite party] legislators
+                          don't cooperate</li>
+                        <li>Said the [own party] governor should ban far-[opposite side of political spectrum] group
+                          rallies in the state capital.</li>
+                        <li>Supported redistricting plan that gives [own party] 2 extra seats despite a decline in the
+                          polls.</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4>Neutral/Uninteresting Positions</h4>
+                      <ul style="font-size: 0.7em;">
+                        <li>
+                          Served on a committee that establishes the state legislature's schedule for each session.
+                        </li>
+                        <li>Worked on a plan to change the state legislature's committee structure</li>
+                        <li>Served on the state's Board of Elections, which handles local, state, and federal elections.
+                        </li>
+                        <li>Submitted a proposal that would change the state's record-keeping laws and practices.</li>
+                        <li>Served on a subcommittee that reviews the structure of state legislative staff offices.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-blue">
+              Results
+            </div>
+            <div class="slide-stack-body" style="text-align: center;">
+              <a style="text-decoration: underline;"
+                href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C7C72745B1AD1FF9E363BBFBA9E18867/S0003055420000052a.pdf/div-class-title-democracy-in-america-partisanship-polarization-and-the-robustness-of-support-for-democracy-in-the-united-states-div.pdf">See
+                Figure 7, page 402
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Modeling the tradeoff</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-blue">
+              Model
+            </div>
+            <div class="slide-stack-body">
+              <div class="fragment handwritten" style="margin-bottom: 0.5em;">
+                Imagine a voter choosing which of two candidates -- $L$ and $R$ -- to vote for.
+              </div>
+              <div class="fragment handwritten" style="margin-bottom: 0.5em;">
+                The candidates have taken positions $x_L$ and $x_R$ on a policy issue.
+              </div>
+              <div class="fragment handwritten" style="margin-bottom: 0.5em;">
+                The voter knows that if candidate $L$ wins, she will attack democratic institutions, and if candidate
+                $R$
+                wins he will not attack democratic institutions.
+              </div>
+              <div class="fragment handwritten" style="margin-bottom: 0.5em;">
+                The voter's utility from voting for a candidate with policy position $x$ is:
+
+                $$
+                - | x - p | + \begin{cases}
+                c & \text{if the candidate will attack democratic institutions} \\
+                0 & \text{if the candidate will not attack democratic institutions}
+                \end{cases}
+                $$
+              </div>
+              <div class="fragment handwritten" style="margin-bottom: 0.5em;">
+                Assume $x_L \lt p \lt x_R$, and $c$ is just some number (the voter might like attacks on democracy!)
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Analyzing the Model</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Typical series of exam prompts!
+            </div>
+            <div class="slide-stack-body" style="font-size: 0.7em;">
+              <ol style="width: 80%;">
+                <li>Write the expression for the voter's utility from voting for candidate $L$.</li>
+                <li>Write the expression for the voter's utility from voting for candidate $R$.</li>
+                <li>Write the inequality that describes the conditions under which the voter prefers voting for
+                  candidate $L$ to voting for candidate $R$.</li>
+                <li>Rearrange the inequality from the previous step so that $x_R$ is by itself on one side of the
+                  inequality. (Remember, $x_L \lt p \lt x_R$).</li>
+                <li>Draw a diagram that shows the threshold on $x_R$ that determines whether the voter prefers voting
+                  for
+                  $L$ to voting for $R$.</li>
+                <li>Describe how the value of $c$ affects the willingness of a voter to vote for the anti-democratic
+                  candidate $L$, given $p$, $x_L$, and $x_R$.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1>Modeling Challenge</h1>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">Make it better</div>
+            <div class="slide-stack-body">
+              <div class="fragment">
+                This utility function is kind of lame:
+
+                $$
+                - | x - p | + \begin{cases}
+                c & \text{if the candidate will attack democratic institutions} \\
+                0 & \text{if the candidate will not attack democratic institutions}
+                \end{cases}
+                $$
+              </div>
+              <div class="fragment">
+                It depicts the effect of a candidate being anti-democratic as independent of the policy position of the
+                candidate.
+              </div>
+              <div class="fragment" style="margin-top: 1em;">
+                Make up a new utility function that depicts a candidate's anti-democratic-ness making the voter's
+                utility from voting for the candidate...
+                <ul>
+                  <li>...<em>higher</em> to the extent that the candidate's policy position is <em>close to</em> the
+                    voter's
+                    ideal
+                    point.</li>
+                  <li>...<em>lower</em> to the extent that the candidate's policy position is <em>far from</em> the
+                    voter's
+                    ideal
+                    point.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+    </div>
+  </div>
+  <script type="module" src="/src/reveal-setup.js"></script>
+</body>
+
+</html>
