@@ -22,79 +22,86 @@
       <section>
         <h2>Overview</h2>
         <ul>
-          <li>Where this fits</li>
-          <li><strong>Definition:</strong> Probabilistic Model of Uncertainty</li>
-          <li><strong>Definition:</strong> Probability Distribution</li>
-          <li><strong>Tool:</strong> Probabilities are Proportions</li>
-          <li><strong>How To</strong></li>
+          <li>Probabilistic Models of Uncertainty</li>
+          <li>Probabilities are Proportions</li>
+          <li>How to</li>
         </ul>
       </section>
 
+
       <section>
-
         <section>
-          <h2>Where this fits</h2>
+          <h1>Probabilistic Models of Uncertainty</h1>
         </section>
-
-        <section>
-          <img src="/assets/img/0127/showups.webp"
-            alt="Figure showing data from special permit hearings from study by Einstein, Glick, and Palmer."
-            width="500px">
-        </section>
-
         <section>
           <div class="slide-stack-2">
-            <div style="display: flex; align-items: center; justify-content: center;">
-              <h2>The Structure of Every PPT Model</h2>
+            <div class="slide-stack-header-blue">
+              Clip: from "The Death of Stalin" by Armando Iannucci
             </div>
-            <div class="fragment" data-fragment-index="1"
-              style="display: grid; grid-template-columns: auto 140px minmax(0,1fr);">
-              <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
-                <div>person</div>
-                <div>person</div>
-                <div>person</div>
-                <div>&vellip;</div>
-                <div>person</div>
-                <div>person</div>
-                <div>person</div>
-              </div>
-              <div
-                style="padding-top: 30px; padding-bottom: 30px; flex; flex-direction: column; align-items: center; justify-content: center;"
-                class="fragment" data-fragment-index="2">
-                <svg viewBox="0 0 140 500" preserveAspectRatio="none" style="width: 100%; height: 100%;">
-                  <path id="bracket-1" stroke="currentColor" fill="none" stroke-width="3" />
-                </svg>
-                <script type="module">
-                  import { generateLeftBracket } from '/src/bracket-generator.js';
-                  document.getElementById('bracket-1').setAttribute('d', generateLeftBracket(140, 500, 21));
-                </script>
-              </div>
-              <div style="display: flex; flex-direction: column; align-items: start; justify-content: space-evenly;">
-                <div class="fragment" data-fragment-index="3" style="text-align: left;">A set of <strong>available
-                    actions.</strong></div>
-                <span class="fragment custom emphasize" data-fragment-index="7">
-                  <div class="fragment" data-fragment-index="4" style="text-align: left;"><strong>Beliefs</strong> about
-                    how her
-                    actions and those
-                    of others affect
-                    outcomes.</div>
-                </span>
-                <div class="fragment" data-fragment-index="5" style="text-align: left;"><strong>Expectations</strong>
-                  about which actions the
-                  other persons will
-                  take.</div>
-                <div class="fragment" data-fragment-index="6" style="text-align: left;">
-                  <strong>Preferences</strong> over outcomes.
-                </div>
-              </div>
-            </div>
-            <div class="fragment" data-fragment-index="8"
-              style="position: absolute; top: 20%; left: 70%; transform: rotate(0.1turn); font-size: 0.7em;">
-              This is what you learn in Module 2. Everything else comes later!
+            <div class="slide-stack-body">
+              <ul>
+                <li class="fragment">Voting in the politburo is constrained by a norm of <em>unanimity</em>. Why? What
+                  are the members
+                  afraid will happen if a vote is taken and the count (either for or against) is not unanimous?</li>
+                <li class="fragment">Pay close attention to the third vote taken in the scene, about whether the arrests
+                  and executions
+                  ordered just before Stalin's death should be paused. Watch what the other members of the politburo do
+                  as Molotov (played by Michael Palin) makes his speech ("Hm....I've always been loyal to Stalin...").
+                  What uncertainties are they contending with during Molotov's speech? Why do they look so stressed
+                  during the speech?
+                </li>
+              </ul>
             </div>
           </div>
         </section>
-
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-yellow">
+              Example: Voting under uncertainty with a norm of unanimity
+            </div>
+            <div class="slide-stack-body">
+              Imagine a person named "Nikita" who is a member of a 3-person committee that is taking a vote on a
+              proposal. Nikita must choose whether to vote "yea" or "nay". Suppose the
+              committee operates under a norm of unanimity. Specifically, if a vote is taken and some vote yea and the
+              others vote nay, murderous violence will ensue in which some members of the committee will be killed. On
+              the other hand if the vote is unanimous (either everyone votes "yea" or everyone votes "nay"), no one gets
+              murdered. Model the uncertainty Nikita faces about the consequences of each vote he could
+              cast.
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Definition: Probabilistic Model of Uncertainty
+            </div>
+            <div class="slide-stack-body">
+              A probabilistic model of uncertainty has two elements:
+              <ul style="margin-top: 1em;">
+                <li class="fragment">An exhaustive list of mutually exclusive <strong>possible events</strong>;</li>
+                <li class="fragment">A <strong>probability distribution</strong> depicting the relative likelihoods with
+                  which each possible event will occur</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="slide-stack-2">
+            <div class="slide-stack-header-green">
+              Definition: Probability Distribution
+            </div>
+            <div class="slide-stack-body">
+              Given an exhaustive list of mutually exclusive possible events, a <strong>probability
+                distribution</strong> over those events is a set of numbers, consisting of exactly one number assigned
+              to each event in the list.
+              <ul style="margin-top: 1em;">
+                <li class="fragment">Each number is between 0 and 1 (inclusive).</li>
+                <li class="fragment">Together, the numbers assigned to the events sum to 1.</li>
+                <li class="fragment">The number assigned to each event is called the "probability of" that event.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   </div>
