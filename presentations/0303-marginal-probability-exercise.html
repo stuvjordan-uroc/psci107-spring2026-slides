@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probabilistic Models of Uncertainty</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/simple.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Maginal and Join Probabilities -- Warm Up</h1>
+      </section>
+
+      <section style="text-align: left; font-size: 0.75em;">
+        <p class="fragment">
+          Let $X$ be some conspiratorial proposition (e.g. "Sandy Hook was staged by the globalist elite as part of a
+          conspiracy to take our guns away."), and let $Q$ be a well-known politician. Model a voter's uncertainty about
+          two issues:
+        </p>
+        <ul class="fragment">
+          <li>Is $X$ true?</li>
+          <li>Will $Q$ say $X$ is true?</li>
+        </ul>
+        <p class="fragment">Specifically:</p>
+        <ol class="fragment">
+          <li>Build a grid to model the voter's uncertainty as joint uncertainty.
+          </li>
+          <li>Assign joint probabilities to depict the idea that the voter believes...</li>
+          <ul>
+            <li>$X$ is unlikely to be true, but it's not impossible.</li>
+            <li>$Q$ is fairly likely to claim $X$ is true, regardless of the actual truth or falsehood of $X$.</li>
+            <li>$Q$ is more likely to claim $X$ is true if $X$ is actually true than if $X$ if actually false.</li>
+          </ul>
+        </ol>
+      </section>
+    </div>
+  </div>
+  <script type="module" src="/src/reveal-setup.js"></script>
+</body>
+
+</html>
