@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marginal-Conditional</title>
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/simple.css" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Marginal-Conditional Method</h1>
+        <h1>Marginal-Conditional Diagram</h1>
+      </section>
+
+      <section>
+        <h3>Your list this week</h3>
+        <ul>
+          <li>Work your way through Lesson 5 and all COUs in Lesson 5.</li>
+          <li>Problem-solving sessions meet this week.</li>
+          <li>Go on spring break and forget everything you've learned.</li>
+        </ul>
+      </section>
+
+      <section style="text-align: left; font-size: 0.7em;">
+        <div style="width: 960px; height: 700px; display: grid; grid-template-columns: 1fr 1fr;">
+          <!--left column-->
+          <div
+            style="width: calc(960px / 2.0); height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h3>Model this:</h3>
+            <p>A chief executive is uncertain about two things:</p>
+            <ul>
+              <li>How well his country's military will perform in combat against a foreign adversary.</li>
+              <li>Whether the military will` be successful if it attempts to overthrow the civilian government in a
+                coup.</li>
+            </ul>
+            <p>Build the model to depict the idea that the extent to which the military will perform well against a
+              foreign
+              adversary is predictive of how likely it is to succeed if it attempts a coup.</p>
+          </div>
+          <!--right column-->
+          <div
+            style="width: calc(960px / 2.0); height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p class="fragment fade-in-then-out"
+              style="text-align: center; font-style: italic; color: var(--blue-900);">
+              Build the model using the marginal-conditional method
+            </p>
+            <p class="fragment fade-in-then-out"
+              style="text-align: center; font-style: italic; color: var(--blue-900);">
+              Build the model using a marginal-conditional diagram
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section style="text-align: left; font-size: 0.7em;">
+        <div style="width: 960px; height: 700px; display: grid; grid-template-columns: 1fr 1fr;">
+          <!--left column-->
+          <div
+            style="width: calc(960px / 2.0); height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h3>Model this:</h3>
+            <p>A chief executive is uncertain about two things:</p>
+            <ul>
+              <li>How well his country's military will perform in combat against a foreign adversary.</li>
+              <li>Whether the military will` be successful if it attempts to overthrow the civilian government in a
+                coup.</li>
+            </ul>
+            <p>Build the model to depict the idea that the extent to which the military will perform well against a
+              foreign
+              adversary is predictive of how likely it is to succeed if it attempts a coup.</p>
+          </div>
+          <!--right column-->
+          <div
+            style="width: calc(960px / 2.0); height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h3 style="color: var(--blue-900);">Steps in the Marginal-Conditional Method</h3>
+            <ol style="color: var(--blue-900);">
+              <li>Pick which uncertainty you'll model as "marginal", and which you'll model as "conditional".</li>
+              <li>Build the model of the marginal uncertainty.</li>
+              <li>Build EACH model of the conditional uncertainty.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+
+      <section style="text-align: left; font-size: 0.7em;">
+        <div style="width: 960px; height: 700px; display: grid; grid-template-columns: 1fr 1fr;">
+          <!--left column-->
+          <div
+            style="width: calc(960px / 2.0); height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h3>Model this:</h3>
+            <p>A chief executive is uncertain about two things:</p>
+            <ul>
+              <li>How well his country's military will perform in combat against a foreign adversary.</li>
+              <li>Whether the military will` be successful if it attempts to overthrow the civilian government in a
+                coup.</li>
+            </ul>
+            <p>Build the model to depict the idea that the extent to which the military will perform well against a
+              foreign
+              adversary is predictive of how likely it is to succeed if it attempts a coup.</p>
+          </div>
+          <!--right column-->
+          <div
+            style="width: calc(960px / 2.0); height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <h3 style="color: var(--blue-900);">Steps in building a Marginal-Conditional Diagram</h3>
+            <ol style="color: var(--blue-900);">
+              <li>Draw a rectangle.</li>
+              <li>Divide the horizontal axis proportionally to depict the marginal uncertainty.</li>
+              <li>Divide EACH horizontal segment proportionally along the vertical axis to depict the conditional
+                uncertainty.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h1>Try it</h1>
+      </section>
+
+      <section>
+        <div class="slide-stack-2">
+          <div class="slide-stack-header-blue">Try it</div>
+          <div class="slide-stack-body" style="font-size: 0.6em;">
+            <p class="fragment">
+              Imagine a chief executive who has the power to set policy to one of two locations -- $L$ and $R$, where $L
+              \lt R$. Suppose the chief executive is a kleptocrat who does not care about the location of policy, but
+              instead is only interested in looting the government to enrich himself and his family. Suppose also that
+              he has a very short attention span.
+            </p>
+            <p style="margin-top: 0.25em;" class="fragment">
+              Suppose the executive has two advisors who each care passionately about policy. Advisor $A_L$ prefers
+              $L$ to $R$ and advisor $A_R$ prefers $R$ to $L$.
+            </p>
+            <p style="margin-top: 0.25em;" class="fragment">
+              Since the executive does not care about policy and has a very short attention span, he will tolerate
+              only one conversation about policy with only one
+              advisor per day,
+              lasting about 5 minutes.
+            </p>
+            <p style="margin-top: 0.25em;" class="fragment">
+              Whichever advisor is lucky enough to get that 5 minutes will try very hard to persuade the chief executive
+              to implement her more-preferred of the two policies. But the chief executive's limited attention span
+              makes it impossible to be sure which policy he will implement once the conversation ends.
+            </p>
+            <p style="margin-top: 0.25em; color: black;" class="fragment">
+              Using a marginal-conditional diagram, build a model that depicts uncertainty about two things:
+            </p>
+            <ul style="margin-top: 0.25em; color: black;" class="fragment">
+              <li>Which advisor will get the one 5-minute conversation with the chief executive.</li>
+              <li>Which policy the chief executive will implement.</li>
+            </ul>
+            <p style="margin-top: 0.25em; color: black;" class="fragment">
+              Depict the idea that the likelihood that the chief executive will implement policy $R$ is higher if
+              advisor $A_R$ gets to have the one five-minute conversation with the executive than if advisor $A_L$ gets
+              to have the one
+              five-minute conversation with the executive.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script type="module" src="/src/reveal-setup.js"></script>
+</body>
+
+</html>
