@@ -48,7 +48,7 @@
           </div>
           <div class="fragment"
             style="box-sizing: border-box; padding: 0.5em; width: calc(960px - 350px); height: 700px; position: absolute; top: 0; left: 350px; text-align: left; font-size: 0.5em;">
-            <h4 style="text-align: center; text-decoration: underline;">stories we can tell</h4>
+            <h4 style="text-align: center; text-decoration: underline; margin-bottom: 0px;">stories we can tell</h4>
             <div>
               <strong>Weakening the government is good, but a pain in the ass</strong>
               <div>
@@ -85,30 +85,22 @@
             </div>
           </div>
           <div class="fragment"
-            style="box-sizing: border-box; width: 960px; height: calc(0.55 * 700px); position: absolute; top: calc(0.55 * 700px); left: 0; font-size: 0.5em; text-align: left;">
-            <h2>Any one person's expected utility from each of her available actions:</h2>
-            <h4>If she participates:</h4>
-            \[
-            P(\text{gov weakened} \left| \text{she participates} \right.) U(\text{gov weakened and she participates}) +
-            P(\text{gov
-            strengthened} \left| \text{she participates} \right.)U(\text{gov
-            strengthened and she participates})
-            \]
-            <h4>If she does not participate:</h4>
-            \[
-            P(\text{gov weakened} \left| \text{she does not participate} \right.) U(\text{gov weakened and she does not
-            participate}) +
-            P(\text{gov
-            strengthened} \left| \text{she does not participate} \right.)U(\text{gov
-            strengthened and she does not participate})
-            \]
-          </div>
-          <div class="fragment"
-            style="width: 65%; position: absolute; top: 30%; left: 100px; padding: 0.5em; background-color: lightblue; border: 1px solid black; border-radius: 0.5em; text-align: left; font-size: 0.7em; transform: rotate(-0.05turn);">
-            <strong>Notice</strong>: None of these probabilities are defined unless the person has an
-            <strong>expectation</strong>
-            about how
-            many of the other persons will participate!!!
+            style="box-sizing: border-box; padding: 0.5em; width: 960px; position: absolute; top: 300px; left: 0px; text-align: left; font-size: 0.5em; background-color: aqua; border: 1px solid gray; border-radius: 0.5em;">
+            Assume <strong>weakening the government is good, but a pain in the ass</strong>. Take any one person, and
+            suppose that person expects $Q$ of the other $N-1$ persons will participate.
+
+            <ol style="margin-top: 0.5em;">
+              <li>Write that person's expected utility from participating</li>
+              <li>Write that person's expected utility from not participating</li>
+              <li>Write the inequality that describes the conditions under which participating is a best response to the
+                expectation that $Q$ of the other $N-1$ persons will participate.</li>
+              <li>Rearrange the inequality so that $Q$ is by itself on one side.</li>
+              <li>In words that a normal human would understand, describe how a person's expectation of the number of
+                other
+                persons who will
+                participate affects whether participating is a best response for her.</li>
+            </ol>
+
           </div>
         </div>
       </section>
@@ -129,85 +121,9 @@
                 which the regime is <em>weakened</em> by the protest is $\frac{P}{1+P}$.</li>
             </ul>
           </div>
-          <div class="fragment"
-            style="box-sizing: border-box; padding: 0.5em; width: calc(960px - 350px); height: 700px; position: absolute; top: 0; left: 350px; text-align: left; font-size: 0.5em;">
-            <h4 style="text-align: center; text-decoration: underline;">stories we can tell</h4>
-            <div>
-              <strong>Weakening the government is good, but a pain in the ass</strong>
-              <div>
-                Each person's utility is:
-                \[
-                \begin{Bmatrix}
-                1 & \text{if the gov. is weakened} \\
-                -1 & \text{if the gov. is strengthened} \\
-                \end{Bmatrix}
-                -
-                \begin{Bmatrix}
-                c & \text{if the person participates} \\
-                0 & \text{if the person does not participate} \\
-                \end{Bmatrix}
-                \]
-              </div>
-            </div>
-            <div>
-              <strong>I just want to be on the winning side</strong>
-              <div>
-                Each person's utility is:
-                \[
-                \begin{Bmatrix}
-                1 & \text{if the gov. is weakend} \\
-                -1 & \text{if the gov. is strengthened} \\
-                \end{Bmatrix}
-                \times
-                \begin{Bmatrix}
-                w & \text{if the person participates} \\
-                -w & \text{if the person does not participate} \\
-                \end{Bmatrix}
-                \]
-              </div>
-            </div>
-          </div>
-          <div class="fragment"
-            style="box-sizing: border-box; width: 960px; height: calc(0.55 * 700px); position: absolute; top: calc(0.55 * 700px); left: 0; font-size: 0.5em; text-align: left;">
-            <h2>Any one person's expected utility from each of her available actions <em>if she expects $Q$ of the other
-                persons to participate</em></h2>
-            <h4>If she participates:</h4>
-            \[
-            P(\text{gov weakened} \left| \text{she participates} \right.) U(\text{gov weakened and she participates}) +
-            P(\text{gov
-            strengthened} \left| \text{she participates} \right.)U(\text{gov
-            strengthened and she participates})
-            \]
-            <h4>If she does not participate:</h4>
-            \[
-            P(\text{gov weakened} \left| \text{she does not participate} \right.) U(\text{gov weakened and she does not
-            participate}) +
-            P(\text{gov
-            strengthened} \left| \text{she does not participate} \right.)U(\text{gov
-            strengthened and she does not participate})
-            \]
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div style="position: relative; width: 960px; height: 700px;">
-          <div
-            style="box-sizing: border-box; border-radius: 0.5em; border: 1px solid black; font-size: 0.5em; width: 350px; padding: 0.5em; position: absolute; top: 0; left: 0;">
-            <ul style="list-style: none; padding-left: 0; margin-left: 0;">
-              <li style="margin-left: 0;">$N$ persons ($N \geq 3$).</li>
-              <li style="margin-left: 0;">Each person chooses to <em>participate</em> or <em>not participate</em> in a
-                protest.</li>
-              <li style="margin-left: 0;">As a result of the protest, the ruling regime will be <em>strengthened</em> or
-                <em>weakened</em>.
-              </li>
-              <li>Let $P$ be the number of persons who participate in the protest. The probability with
-                which the regime is <em>weakened</em> by the protest is $\frac{P}{1+P}$.</li>
-            </ul>
-          </div>
           <div
             style="box-sizing: border-box; padding: 0.5em; width: calc(960px - 350px); height: 700px; position: absolute; top: 0; left: 350px; text-align: left; font-size: 0.5em;">
-            <h4 style="text-align: center; text-decoration: underline;">stories we can tell</h4>
+            <h4 style="text-align: center; text-decoration: underline; margin-bottom: 0px;">stories we can tell</h4>
             <div>
               <strong>Weakening the government is good, but a pain in the ass</strong>
               <div>
@@ -232,7 +148,7 @@
                 \[
                 \begin{Bmatrix}
                 1 & \text{if the gov. is weakened} \\
-                -1 & \text{if the gov. is strengthened} \\
+                -1 & \text{if the gov. is strenghtened} \\
                 \end{Bmatrix}
                 \times
                 \begin{Bmatrix}
@@ -244,26 +160,26 @@
             </div>
           </div>
           <div
-            style="box-sizing: border-box; width: 960px; height: calc(0.55 * 700px); position: absolute; top: calc(0.55 * 700px); left: 0; font-size: 0.5em; text-align: left;">
-            <h2>Any one person's expected utility from each of her available actions <em>if she expects $Q$ of the other
-                persons to participate</em></h2>
-            <h4>If she participates:</h4>
-            \[
-            \frac{Q + 1}{1 + Q + 1}
-            U(\text{gov weakened and she participates}) +
-            \left( 1 - \frac{Q + 1}{1 + Q + 1} \right)U(\text{gov
-            strengthened and she participates})
-            \]
-            <h4>If she does not participate:</h4>
-            \[
-            \frac{Q}{1 + Q} U(\text{gov weakened and she
-            does not participate}) +
-            \frac{Q}{1 + Q}U(\text{gov
-            strengthened and she does not participate})
-            \]
+            style="box-sizing: border-box; padding: 0.5em; width: 960px; position: absolute; top: 300px; left: 0px; text-align: left; font-size: 0.5em; background-color: aqua; border: 1px solid gray; border-radius: 0.5em;">
+            Assume <strong>I just want to be on the winning side</strong>. Take any one person, and
+            suppose that person expects $Q$ of the other $N-1$ persons will participate.
+
+            <ol style="margin-top: 0.5em;">
+              <li>Write that person's expected utility from participating</li>
+              <li>Write that person's expected utility from not participating</li>
+              <li>Write the inequality that describes the conditions under which participating is a best response to the
+                expectation that $Q$ of the other $N-1$ persons will participate.</li>
+              <li>Rearrange the inequality so that $Q$ is by itself on one side.</li>
+              <li>In words that a normal human would understand, describe how a person's expectation of the number of
+                other
+                persons who will
+                participate affects whether participating is a best response for her.</li>
+            </ol>
+
           </div>
         </div>
       </section>
+
 
       <section>
         <div style="position: relative; width: 960px; height: 700px;">
@@ -282,7 +198,7 @@
           </div>
           <div
             style="box-sizing: border-box; padding: 0.5em; width: calc(960px - 350px); height: 700px; position: absolute; top: 0; left: 350px; text-align: left; font-size: 0.5em;">
-            <h4 style="text-align: center; text-decoration: underline;">stories we can tell</h4>
+            <h4 style="text-align: center; text-decoration: underline; margin-bottom: 0px;">stories we can tell</h4>
             <div>
               <strong>Weakening the government is good, but a pain in the ass</strong>
               <div>
@@ -306,8 +222,8 @@
                 Each person's utility is:
                 \[
                 \begin{Bmatrix}
-                1 & \text{if the gov. is weakend} \\
-                -1 & \text{if the gov. is strengthened} \\
+                1 & \text{if the gov. is weakened} \\
+                -1 & \text{if the gov. is strenghtened} \\
                 \end{Bmatrix}
                 \times
                 \begin{Bmatrix}
@@ -319,40 +235,167 @@
             </div>
           </div>
           <div
-            style="box-sizing: border-box; width: 960px; height: calc(0.55 * 700px); position: absolute; top: calc(0.55 * 700px); left: 0; font-size: 0.5em; text-align: left;">
-            <h2>Any one person's expected utility from each of her available actions <em>if she expects $Q$ of the other
-                persons to participate</em></h2>
-            <h4>If she participates:</h4>
-            \[
-            \frac{Q + 1}{1 + Q + 1}
-            U(\text{gov weakened and she participates}) +
-            \left( 1 - \frac{Q + 1}{1 + Q + 1} \right)U(\text{gov
-            strengthened and she participates})
-            \]
-            <h4>If she does not participate:</h4>
-            \[
-            \frac{Q}{1 + Q} U(\text{gov weakened and she
-            does not participate}) +
-            \frac{Q}{1 + Q}U(\text{gov
-            strengthened and she does not participate})
-            \]
-          </div>
-          <div
-            style="width: 33%; position: absolute; top: 80px; left: 10px; padding: 0.5em; background-color: lightblue; border: 1px solid black; border-radius: 0.5em; text-align: left; font-size: 0.5em; ">
-            <ul style="margin-left: 0;">
-              <li>
-                How does a person's expectation about the number of other persons who will participate affect her
-                incentive to participate when weakening the government is good but a pain in the ass?
+            style="box-sizing: border-box; padding: 0.5em; width: 960px; position: absolute; top: 300px; left: 0px; text-align: left; font-size: 0.5em; background-color: greenyellow; border: 1px solid gray; border-radius: 0.5em;">
+            Assume <strong>weakening the government is good, but a pain in the ass</strong>. Imagine any profile actions
+            in which a given number $K$ (with $0 \leq K \leq N$) of the $N$ persons participate, while the remaining
+            $N-K$ do not participate.
+
+            <ol style="margin-top: 0.5em;">
+              <li>Take any one person in this profile who <em>participates</em>. Write the inequality that must hold for
+                <em>participating</em> to be a best response for this person, if she expects that the other $N-1$
+                persons act as described in this profile.
               </li>
-              <li>
-                How does a person's expectation about the number of other persons who participate affect her incentives
-                to participat when she just wants to be on the winning side?
-              </li>
-            </ul>
+              <li>Take any one person in this profile who <em>does not participate</em>. Write the inequality that must
+                hold for <em>not participating</em> to be a best response for this person, if she expects that the other
+                $N-1$ persons act as described in this profile.</li>
+              <li>Write the inequalities that must hold for this profile to be a Nash Equilibrium.</li>
+              <li>In words that a normal human would understand, describe the profiles of behavior in this game that are
+                Nash Equilibria.</li>
+            </ol>
+
           </div>
         </div>
-
       </section>
+
+      <section>
+        <div style="position: relative; width: 960px; height: 700px;">
+          <div
+            style="box-sizing: border-box; border-radius: 0.5em; border: 1px solid black; font-size: 0.5em; width: 350px; padding: 0.5em; position: absolute; top: 0; left: 0;">
+            <ul style="list-style: none; padding-left: 0; margin-left: 0;">
+              <li style="margin-left: 0;">$N$ persons ($N \geq 3$).</li>
+              <li style="margin-left: 0;">Each person chooses to <em>participate</em> or <em>not participate</em> in a
+                protest.</li>
+              <li style="margin-left: 0;">As a result of the protest, the ruling regime will be <em>strengthened</em> or
+                <em>weakened</em>.
+              </li>
+              <li>Let $P$ be the number of persons who participate in the protest. The probability with
+                which the regime is <em>weakened</em> by the protest is $\frac{P}{1+P}$.</li>
+            </ul>
+          </div>
+          <div
+            style="box-sizing: border-box; padding: 0.5em; width: calc(960px - 350px); height: 700px; position: absolute; top: 0; left: 350px; text-align: left; font-size: 0.5em;">
+            <h4 style="text-align: center; text-decoration: underline; margin-bottom: 0px;">stories we can tell</h4>
+            <div>
+              <strong>Weakening the government is good, but a pain in the ass</strong>
+              <div>
+                Each person's utility is:
+                \[
+                \begin{Bmatrix}
+                1 & \text{if the gov. is weakened} \\
+                -1 & \text{if the gov. is strengthened} \\
+                \end{Bmatrix}
+                -
+                \begin{Bmatrix}
+                c & \text{if the person participates} \\
+                0 & \text{if the person does not participate} \\
+                \end{Bmatrix}
+                \]
+              </div>
+            </div>
+            <div>
+              <strong>I just want to be on the winning side</strong>
+              <div>
+                Each person's utility is:
+                \[
+                \begin{Bmatrix}
+                1 & \text{if the gov. is weakened} \\
+                -1 & \text{if the gov. is strenghtened} \\
+                \end{Bmatrix}
+                \times
+                \begin{Bmatrix}
+                w & \text{if the person participates} \\
+                -w & \text{if the person does not participate} \\
+                \end{Bmatrix}
+                \]
+              </div>
+            </div>
+          </div>
+          <div
+            style="box-sizing: border-box; padding: 0.5em; width: 960px; position: absolute; top: 300px; left: 0px; text-align: left; font-size: 0.5em; background-color: greenyellow; border: 1px solid gray; border-radius: 0.5em;">
+            Assume <strong>I just want to be on the winning side</strong>. Imagine any profile actions
+            in which a given number $K$ (with $0 \leq K \leq N$) of the $N$ persons participate, while the remaining
+            $N-K$ do not participate.
+
+            <ol style="margin-top: 0.5em;">
+              <li>Take any one person in this profile who <em>participates</em>. Write the inequality that must hold for
+                <em>participating</em> to be a best response for this person, if she expects that the other $N-1$
+                persons act as described in this profile.
+              </li>
+              <li>Take any one person in this profile who <em>does not participate</em>. Write the inequality that must
+                hold for <em>not participating</em> to be a best response for this person, if she expects that the other
+                $N-1$ persons act as described in this profile.</li>
+              <li>Write the inequalities that must hold for this profile to be a Nash Equilibrium.</li>
+              <li>In words that a normal human would understand, describe the profiles of behavior in this game that are
+                Nash Equilibria.</li>
+            </ol>
+
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div style="position: relative; width: 960px; height: 700px;">
+          <div
+            style="box-sizing: border-box; border-radius: 0.5em; border: 1px solid black; font-size: 0.5em; width: 350px; padding: 0.5em; position: absolute; top: 0; left: 0;">
+            <ul style="list-style: none; padding-left: 0; margin-left: 0;">
+              <li style="margin-left: 0;">$N$ persons ($N \geq 3$).</li>
+              <li style="margin-left: 0;">Each person chooses to <em>participate</em> or <em>not participate</em> in a
+                protest.</li>
+              <li style="margin-left: 0;">As a result of the protest, the ruling regime will be <em>strengthened</em> or
+                <em>weakened</em>.
+              </li>
+              <li>Let $P$ be the number of persons who participate in the protest. The probability with
+                which the regime is <em>weakened</em> by the protest is $\frac{P}{1+P}$.</li>
+            </ul>
+          </div>
+          <div
+            style="box-sizing: border-box; padding: 0.5em; width: calc(960px - 350px); height: 700px; position: absolute; top: 0; left: 350px; text-align: left; font-size: 0.5em;">
+            <h4 style="text-align: center; text-decoration: underline; margin-bottom: 0px;">stories we can tell</h4>
+            <div>
+              <strong>Weakening the government is good, but a pain in the ass</strong>
+              <div>
+                Each person's utility is:
+                \[
+                \begin{Bmatrix}
+                1 & \text{if the gov. is weakened} \\
+                -1 & \text{if the gov. is strengthened} \\
+                \end{Bmatrix}
+                -
+                \begin{Bmatrix}
+                c & \text{if the person participates} \\
+                0 & \text{if the person does not participate} \\
+                \end{Bmatrix}
+                \]
+              </div>
+            </div>
+            <div>
+              <strong>I just want to be on the winning side</strong>
+              <div>
+                Each person's utility is:
+                \[
+                \begin{Bmatrix}
+                1 & \text{if the gov. is weakened} \\
+                -1 & \text{if the gov. is strenghtened} \\
+                \end{Bmatrix}
+                \times
+                \begin{Bmatrix}
+                w & \text{if the person participates} \\
+                -w & \text{if the person does not participate} \\
+                \end{Bmatrix}
+                \]
+              </div>
+            </div>
+          </div>
+          <div
+            style="box-sizing: border-box; padding: 0.5em; width: 960px; position: absolute; top: 300px; left: 0px; text-align: left; font-size: 0.5em; background-color: greenyellow; border: 1px solid gray; border-radius: 0.5em;">
+            In words that a normal human would understand, describe how behavior in the profiles that are Nash
+            Equilibria when <strong>weakening the government is good, but a pain in the ass</strong> differ from
+            profiles that are Nash Equilibria when <strong>I just want to be on the winning side</strong>.
+          </div>
+        </div>
+      </section>
+
+
     </div>
   </div>
   <script type="module" src="/src/reveal-setup.js"></script>
